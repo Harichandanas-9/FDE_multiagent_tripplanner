@@ -9,33 +9,33 @@
       "answer_correctness"
     ],
     "overall_means": {
-      "faithfulness": 0.8933,
-      "answer_relevancy": 0.72,
-      "context_precision": 0.792,
-      "context_recall": 0.8022,
-      "answer_correctness": 0.9067
+      "faithfulness": 0.44,
+      "answer_relevancy": 0.16,
+      "context_precision": 0.1333,
+      "context_recall": 0.08,
+      "answer_correctness": 0.5667
     },
     "tier_means": {
       "good": {
-        "faithfulness": 0.9429,
-        "answer_relevancy": 0.8571,
-        "context_precision": 0.92,
-        "context_recall": 1.0,
-        "answer_correctness": 0.9571
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       "medium": {
-        "faithfulness": 0.8,
-        "answer_relevancy": 0.5,
-        "context_precision": 0.74,
-        "context_recall": 0.7389,
-        "answer_correctness": 0.8167
+        "faithfulness": 0.4,
+        "answer_relevancy": 0.2667,
+        "context_precision": 0.1667,
+        "context_recall": 0.1,
+        "answer_correctness": 0.5333
       },
       "bad": {
-        "faithfulness": 1.0,
-        "answer_relevancy": 0.9,
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.4,
         "context_precision": 0.5,
         "context_recall": 0.3,
-        "answer_correctness": 1.0
+        "answer_correctness": 0.2
       }
     },
     "per_case": [
@@ -43,71 +43,71 @@
         "case_id": "TC001",
         "quality": "good",
         "question_short": "plan a 4-day Mysore trip from Bangalore, budget Rs...",
-        "faithfulness": 1.0,
-        "answer_relevancy": 1.0,
-        "context_precision": 1.0,
-        "context_recall": 1.0,
-        "answer_correctness": 1.0
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       {
         "case_id": "TC002",
         "quality": "good",
         "question_short": "Plan a 5-day Goa trip from Bangalore for a couple,...",
-        "faithfulness": 1.0,
-        "answer_relevancy": 1.0,
-        "context_precision": 1.0,
-        "context_recall": 1.0,
-        "answer_correctness": 1.0
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       {
         "case_id": "TC003",
         "quality": "good",
         "question_short": "Plan a 3-day Jaipur trip from Delhi, budget rs 150...",
-        "faithfulness": 1.0,
-        "answer_relevancy": 1.0,
-        "context_precision": 0.86,
-        "context_recall": 1.0,
-        "answer_correctness": 1.0
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       {
         "case_id": "TC004",
         "quality": "medium",
         "question_short": "what is travel...",
-        "faithfulness": 1.0,
-        "answer_relevancy": 1.0,
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.8,
         "context_precision": 0.5,
         "context_recall": 0.3,
-        "answer_correctness": 1.0
+        "answer_correctness": 0.2
       },
       {
         "case_id": "TC005",
         "quality": "medium",
         "question_short": "who are you...",
-        "faithfulness": 1.0,
-        "answer_relevancy": 1.0,
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.8,
         "context_precision": 0.5,
         "context_recall": 0.3,
-        "answer_correctness": 1.0
+        "answer_correctness": 0.2
       },
       {
         "case_id": "TC006",
         "quality": "good",
         "question_short": "Plan a Goa trip from Mumbai for 3 days, Rs 20000, ...",
-        "faithfulness": 0.8,
-        "answer_relevancy": 0.5,
-        "context_precision": 1.0,
-        "context_recall": 1.0,
-        "answer_correctness": 0.85
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       {
         "case_id": "TC007",
         "quality": "good",
         "question_short": "Plan a 3-day Mysore trip from Bangalore, Rs 15000,...",
-        "faithfulness": 0.8,
-        "answer_relevancy": 0.5,
-        "context_precision": 1.0,
-        "context_recall": 1.0,
-        "answer_correctness": 0.85
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       {
         "case_id": "TC008",
@@ -115,8 +115,8 @@
         "question_short": "Plan a 4-day Goa trip from Bangalore for a couple,...",
         "faithfulness": 0.6,
         "answer_relevancy": 0.0,
-        "context_precision": 1.0,
-        "context_recall": 1.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
         "answer_correctness": 0.7
       },
       {
@@ -125,9 +125,9 @@
         "question_short": "Plan a 5-day Manali trip from Delhi, Rs 10000, lux...",
         "faithfulness": 0.6,
         "answer_relevancy": 0.0,
-        "context_precision": 0.72,
-        "context_recall": 0.8333,
-        "answer_correctness": 0.5
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       {
         "case_id": "TC010",
@@ -135,59 +135,59 @@
         "question_short": "Plan a 3-day Mysore trip from Bangalore, Rs 15000,...",
         "faithfulness": 0.6,
         "answer_relevancy": 0.0,
-        "context_precision": 1.0,
-        "context_recall": 1.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
         "answer_correctness": 0.7
       },
       {
         "case_id": "TC011",
         "quality": "bad",
         "question_short": "plan a trip...",
-        "faithfulness": 1.0,
-        "answer_relevancy": 1.0,
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
         "context_precision": 0.5,
         "context_recall": 0.3,
-        "answer_correctness": 1.0
+        "answer_correctness": 0.2
       },
       {
         "case_id": "TC012",
         "quality": "good",
         "question_short": "Plan a 4-day Kerala trip from Chennai for a family...",
-        "faithfulness": 1.0,
-        "answer_relevancy": 1.0,
-        "context_precision": 0.86,
-        "context_recall": 1.0,
-        "answer_correctness": 1.0
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       {
         "case_id": "TC013",
         "quality": "good",
         "question_short": "plan a trip to coorg for 3 days from bangalore, Rs...",
-        "faithfulness": 1.0,
-        "answer_relevancy": 1.0,
-        "context_precision": 0.72,
-        "context_recall": 1.0,
-        "answer_correctness": 1.0
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       {
         "case_id": "TC014",
         "quality": "medium",
         "question_short": "plan a trip to ooty for 4 days in next week from c...",
-        "faithfulness": 1.0,
-        "answer_relevancy": 1.0,
-        "context_precision": 0.72,
-        "context_recall": 1.0,
-        "answer_correctness": 1.0
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
       },
       {
         "case_id": "TC015",
         "quality": "bad",
         "question_short": "tell me about something random...",
-        "faithfulness": 1.0,
+        "faithfulness": 0.0,
         "answer_relevancy": 0.8,
         "context_precision": 0.5,
         "context_recall": 0.3,
-        "answer_correctness": 1.0
+        "answer_correctness": 0.2
       }
     ],
     "total_cases": 15
@@ -198,7 +198,7 @@
       "category": "happy_path",
       "quality": "good",
       "user_input": "plan a 4-day Mysore trip from Bangalore, budget Rs 15000, heritage and shopping, train || plan it",
-      "final_reply": "Your **4-day Mysore** plan is ready!\n\nEstimated: Rs 12833 of Rs 15000 - within budget\n\nAdjusted: hotel tier, switched to train\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
@@ -206,427 +206,30 @@
         "thank you",
         "happy journey"
       ],
-      "matched_keywords": [
-        "mysore",
-        "thank you",
-        "happy journey"
-      ],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Mysore_c76972.pdf",
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 3.428,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        1.741,
-        1.687
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Mysore",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-28",
-              "summary": "Cloudy",
-              "temp_min_c": 22,
-              "temp_max_c": 33,
-              "humidity": 63,
-              "rain_mm": 5
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 2,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Mysore",
-            "tagline": "City of palaces - Karnataka heritage",
-            "best_for": [
-              "heritage",
-              "family",
-              "palace",
-              "temple",
-              "shopping"
-            ],
-            "season": "Oct-Mar",
-            "attractions": [
-              {
-                "name": "Mysore Palace",
-                "type": "Heritage",
-                "rating": 4.7
-              },
-              {
-                "name": "Chamundi Hills",
-                "type": "Temple",
-                "rating": 4.5
-              },
-              {
-                "name": "Brindavan Gardens",
-                "type": "Garden",
-                "rating": 4.3
-              },
-              {
-                "name": "St. Philomena's Cathedral",
-                "type": "Heritage",
-                "rating": 4.4
-              },
-              {
-                "name": "Mysore Zoo",
-                "type": "Wildlife",
-                "rating": 4.4
-              }
-            ],
-            "local_food": [
-              "Mysore Pak",
-              "Mysore Masala Dosa",
-              "Bisi Bele Bath"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 2,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Mysore",
-              "tagline": "City of palaces - Karnataka heritage",
-              "score": 2,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Mysore Palace",
-                "Chamundi Hills",
-                "Brindavan Gardens"
-              ]
-            },
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 0,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 0,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "train",
-          "flights": {
-            "source_city": "Bangalore",
-            "dest_city": "Mysore",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-277",
-                "depart": "06:00",
-                "arrive": "08:10",
-                "duration": "1h 49m",
-                "stops": 0,
-                "price_per_person": 2411,
-                "total_price": 2411,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-747",
-                "depart": "09:40",
-                "arrive": "11:10",
-                "duration": "1h 37m",
-                "stops": 0,
-                "price_per_person": 2626,
-                "total_price": 2626,
-                "currency": "INR"
-              },
-              {
-                "airline": "Air India",
-                "flight_no": "AI-592",
-                "depart": "12:00",
-                "arrive": "14:30",
-                "duration": "1h 26m",
-                "stops": 1,
-                "price_per_person": 2791,
-                "total_price": 2791,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "IndiGo",
-              "flight_no": "IN-277",
-              "depart": "06:00",
-              "arrive": "08:10",
-              "duration": "1h 49m",
-              "stops": 0,
-              "price_per_person": 2411,
-              "total_price": 2411,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Bangalore",
-            "dest_city": "Mysore",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Bangalore-Mysore Express",
-                "number": "20056",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "8h",
-                "price_per_person": 800,
-                "total_price": 800,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "17742",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "7h",
-                "price_per_person": 1280,
-                "total_price": 1280,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Bangalore-Mysore Express",
-              "number": "20056",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "8h",
-              "price_per_person": 800,
-              "total_price": 800,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "name": "Bangalore-Mysore Express",
-            "number": "20056",
-            "class": "3A",
-            "depart": "20:30",
-            "arrive": "08:45",
-            "duration": "8h",
-            "price_per_person": 800,
-            "total_price": 800,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Mysore",
-          "nights": 3,
-          "travelers": 1,
-          "band": "budget",
-          "options": [
-            {
-              "name": "Zostel Mysore",
-              "band": "budget",
-              "rating": 4.2,
-              "per_night": 1611,
-              "nights": 3,
-              "total": 4833,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Zostel Mysore",
-            "band": "budget",
-            "rating": 4.2,
-            "per_night": 1611,
-            "nights": 3,
-            "total": 4833,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 15000.0,
-          "estimated_total": 12833.0,
-          "overshoot": 0.0,
-          "within_budget": true,
-          "breakdown": {
-            "transport": 1600.0,
-            "hotel": 4833.0,
-            "food": 2400,
-            "activities": 2000,
-            "local_transport": 800,
-            "misc": 1200
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Budget looks comfortable."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Mysore",
-              "morning": "Visit Mysore Palace",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Chamundi Hills",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Mysore",
-              "morning": "Visit Chamundi Hills",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Brindavan Gardens",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Mysore",
-              "morning": "Visit Brindavan Gardens",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore St. Philomena's Cathedral",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 4,
-              "date": "2026-06-11",
-              "title": "Day 4 in Mysore",
-              "morning": "Visit St. Philomena's Cathedral",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Mysore Zoo",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Bangalore",
-          "destination": "Mysore",
-          "duration_days": 4,
-          "budget": 15000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "budget",
-          "transport_pref": "train",
-          "interests": [
-            "heritage",
-            "shopping"
-          ],
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-11",
-          "food_pref": []
-        }
-      },
-      "faithfulness": 1.0,
-      "answer_relevancy": 1.0,
-      "context_precision": 1.0,
-      "context_recall": 1.0,
-      "answer_correctness": 1.0
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
     },
     {
       "case_id": "TC002",
       "category": "happy_path",
       "quality": "good",
       "user_input": "Plan a 5-day Goa trip from Bangalore for a couple, budget Rs 30000, beach, nightlife, seafood, flight preferred || plan it",
-      "final_reply": "Your **5-day Goa** plan is ready!\n\nEstimated: Rs 18130 of Rs 30000 - within budget\n\nAdjusted: hotel tier\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
@@ -634,453 +237,30 @@
         "thank you",
         "happy journey"
       ],
-      "matched_keywords": [
-        "goa",
-        "thank you",
-        "happy journey"
-      ],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Goa_b6f88f.pdf",
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 2.92,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        1.577,
-        1.342
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Goa",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-28",
-              "summary": "Cloudy",
-              "temp_min_c": 22,
-              "temp_max_c": 33,
-              "humidity": 63,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-29",
-              "summary": "Clear",
-              "temp_min_c": 23,
-              "temp_max_c": 30,
-              "humidity": 64,
-              "rain_mm": 0
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 2,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Goa",
-            "tagline": "Beaches, nightlife and Portuguese heritage",
-            "best_for": [
-              "beach",
-              "nightlife",
-              "seafood",
-              "couple",
-              "watersports"
-            ],
-            "season": "Nov-Feb",
-            "attractions": [
-              {
-                "name": "Baga Beach",
-                "type": "Beach",
-                "rating": 4.4
-              },
-              {
-                "name": "Calangute Beach",
-                "type": "Beach",
-                "rating": 4.3
-              },
-              {
-                "name": "Dudhsagar Falls",
-                "type": "Nature",
-                "rating": 4.6
-              },
-              {
-                "name": "Old Goa Churches",
-                "type": "Heritage",
-                "rating": 4.5
-              },
-              {
-                "name": "Anjuna Flea Market",
-                "type": "Shopping",
-                "rating": 4.2
-              }
-            ],
-            "local_food": [
-              "Goan fish curry",
-              "Prawn balchao",
-              "Bebinca",
-              "Feni"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 3,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 0,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 0,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            },
-            {
-              "city": "Paris",
-              "tagline": "City of light, art and romance",
-              "score": 0,
-              "season": "Apr-Jun, Sep-Oct",
-              "highlights": [
-                "Eiffel Tower",
-                "Louvre Museum",
-                "Notre-Dame"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "flight",
-          "flights": {
-            "source_city": "Bangalore",
-            "dest_city": "Goa",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "Air India",
-                "flight_no": "AI-266",
-                "depart": "12:30",
-                "arrive": "14:10",
-                "duration": "1h 12m",
-                "stops": 1,
-                "price_per_person": 2141,
-                "total_price": 2141,
-                "currency": "INR"
-              },
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-883",
-                "depart": "06:00",
-                "arrive": "08:00",
-                "duration": "1h 29m",
-                "stops": 0,
-                "price_per_person": 2477,
-                "total_price": 2477,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-325",
-                "depart": "09:20",
-                "arrive": "11:50",
-                "duration": "1h 26m",
-                "stops": 0,
-                "price_per_person": 2625,
-                "total_price": 2625,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "Air India",
-              "flight_no": "AI-266",
-              "depart": "12:30",
-              "arrive": "14:10",
-              "duration": "1h 12m",
-              "stops": 1,
-              "price_per_person": 2141,
-              "total_price": 2141,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Bangalore",
-            "dest_city": "Goa",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Bangalore-Goa Express",
-                "number": "12710",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "10h",
-                "price_per_person": 800,
-                "total_price": 800,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "13077",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "9h",
-                "price_per_person": 1280,
-                "total_price": 1280,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Bangalore-Goa Express",
-              "number": "12710",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "10h",
-              "price_per_person": 800,
-              "total_price": 800,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "airline": "Air India",
-            "flight_no": "AI-266",
-            "depart": "12:30",
-            "arrive": "14:10",
-            "duration": "1h 12m",
-            "stops": 1,
-            "price_per_person": 2141,
-            "total_price": 2141,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Goa",
-          "nights": 4,
-          "travelers": 1,
-          "band": "budget",
-          "options": [
-            {
-              "name": "Zostel Goa",
-              "band": "budget",
-              "rating": 4.2,
-              "per_night": 1462,
-              "nights": 4,
-              "total": 5848,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Zostel Goa",
-            "band": "budget",
-            "rating": 4.2,
-            "per_night": 1462,
-            "nights": 4,
-            "total": 5848,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 30000.0,
-          "estimated_total": 18130.0,
-          "overshoot": 0.0,
-          "within_budget": true,
-          "breakdown": {
-            "transport": 4282.0,
-            "hotel": 5848.0,
-            "food": 3000,
-            "activities": 2500,
-            "local_transport": 1000,
-            "misc": 1500
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Budget looks comfortable."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Goa",
-              "morning": "Visit Baga Beach",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Calangute Beach",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Goa",
-              "morning": "Visit Calangute Beach",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Dudhsagar Falls",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Goa",
-              "morning": "Visit Dudhsagar Falls",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Old Goa Churches",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 4,
-              "date": "2026-06-11",
-              "title": "Day 4 in Goa",
-              "morning": "Visit Old Goa Churches",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Anjuna Flea Market",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 5,
-              "date": "2026-06-12",
-              "title": "Day 5 in Goa",
-              "morning": "Visit Anjuna Flea Market",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Baga Beach",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Bangalore",
-          "destination": "Goa",
-          "duration_days": 5,
-          "budget": 30000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "budget",
-          "food_pref": [
-            "seafood"
-          ],
-          "transport_pref": "flight",
-          "interests": [
-            "beach",
-            "nightlife",
-            "seafood"
-          ],
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-12"
-        }
-      },
-      "faithfulness": 1.0,
-      "answer_relevancy": 1.0,
-      "context_precision": 1.0,
-      "context_recall": 1.0,
-      "answer_correctness": 1.0
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
     },
     {
       "case_id": "TC003",
       "category": "happy_path",
       "quality": "good",
       "user_input": "Plan a 3-day Jaipur trip from Delhi, budget rs 15000, heritage and shopping || plan it",
-      "final_reply": "Your **3-day Jaipur** plan is ready!\n\nEstimated: Rs 12906 of Rs 15000 - within budget\n\nAdjusted: hotel tier\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
@@ -1088,1725 +268,167 @@
         "thank you",
         "happy journey"
       ],
-      "matched_keywords": [
-        "jaipur",
-        "thank you",
-        "happy journey"
-      ],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Jaipur_6eb919.pdf",
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 2.955,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        1.794,
-        1.162
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Jaipur",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 1,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Jaipur",
-            "tagline": "The Pink City - palaces and Rajasthani culture",
-            "best_for": [
-              "heritage",
-              "family",
-              "photography",
-              "shopping"
-            ],
-            "season": "Oct-Mar",
-            "attractions": [
-              {
-                "name": "Amber Fort",
-                "type": "Heritage",
-                "rating": 4.6
-              },
-              {
-                "name": "Hawa Mahal",
-                "type": "Heritage",
-                "rating": 4.4
-              },
-              {
-                "name": "City Palace",
-                "type": "Heritage",
-                "rating": 4.5
-              },
-              {
-                "name": "Jantar Mantar",
-                "type": "Heritage",
-                "rating": 4.4
-              }
-            ],
-            "local_food": [
-              "Dal baati churma",
-              "Laal maas",
-              "Pyaaz kachori"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 2,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Mysore",
-              "tagline": "City of palaces - Karnataka heritage",
-              "score": 2,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Mysore Palace",
-                "Chamundi Hills",
-                "Brindavan Gardens"
-              ]
-            },
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 0,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 0,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "flight",
-          "flights": {
-            "source_city": "Delhi",
-            "dest_city": "Jaipur",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "Air India",
-                "flight_no": "AI-290",
-                "depart": "12:00",
-                "arrive": "14:00",
-                "duration": "1h 19m",
-                "stops": 1,
-                "price_per_person": 2209,
-                "total_price": 2209,
-                "currency": "INR"
-              },
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-439",
-                "depart": "06:30",
-                "arrive": "08:50",
-                "duration": "1h 35m",
-                "stops": 0,
-                "price_per_person": 2546,
-                "total_price": 2546,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-686",
-                "depart": "09:10",
-                "arrive": "11:50",
-                "duration": "1h 32m",
-                "stops": 0,
-                "price_per_person": 2968,
-                "total_price": 2968,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "Air India",
-              "flight_no": "AI-290",
-              "depart": "12:00",
-              "arrive": "14:00",
-              "duration": "1h 19m",
-              "stops": 1,
-              "price_per_person": 2209,
-              "total_price": 2209,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Delhi",
-            "dest_city": "Jaipur",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Delhi-Jaipur Express",
-                "number": "18669",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "9h",
-                "price_per_person": 800,
-                "total_price": 800,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "14251",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "8h",
-                "price_per_person": 1280,
-                "total_price": 1280,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Delhi-Jaipur Express",
-              "number": "18669",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "9h",
-              "price_per_person": 800,
-              "total_price": 800,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "airline": "Air India",
-            "flight_no": "AI-290",
-            "depart": "12:00",
-            "arrive": "14:00",
-            "duration": "1h 19m",
-            "stops": 1,
-            "price_per_person": 2209,
-            "total_price": 2209,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Jaipur",
-          "nights": 2,
-          "travelers": 1,
-          "band": "budget",
-          "options": [
-            {
-              "name": "Zostel Jaipur",
-              "band": "budget",
-              "rating": 4.3,
-              "per_night": 1844,
-              "nights": 2,
-              "total": 3688,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Zostel Jaipur",
-            "band": "budget",
-            "rating": 4.3,
-            "per_night": 1844,
-            "nights": 2,
-            "total": 3688,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 15000.0,
-          "estimated_total": 12906.0,
-          "overshoot": 0.0,
-          "within_budget": true,
-          "breakdown": {
-            "transport": 4418.0,
-            "hotel": 3688.0,
-            "food": 1800,
-            "activities": 1500,
-            "local_transport": 600,
-            "misc": 900
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Budget looks comfortable."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Jaipur",
-              "morning": "Visit Amber Fort",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Hawa Mahal",
-              "meals": [
-                "Dal baati churma",
-                "Laal maas",
-                "Pyaaz kachori"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Jaipur",
-              "morning": "Visit Hawa Mahal",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore City Palace",
-              "meals": [
-                "Dal baati churma",
-                "Laal maas",
-                "Pyaaz kachori"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Jaipur",
-              "morning": "Visit City Palace",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Jantar Mantar",
-              "meals": [
-                "Dal baati churma",
-                "Laal maas",
-                "Pyaaz kachori"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Delhi",
-          "destination": "Jaipur",
-          "duration_days": 3,
-          "budget": 15000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "budget",
-          "transport_pref": "flight",
-          "interests": [
-            "heritage",
-            "shopping"
-          ],
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-10",
-          "food_pref": []
-        }
-      },
-      "faithfulness": 1.0,
-      "answer_relevancy": 1.0,
-      "context_precision": 0.86,
-      "context_recall": 1.0,
-      "answer_correctness": 1.0
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
     },
     {
       "case_id": "TC004",
       "category": "off_topic",
       "quality": "medium",
       "user_input": "what is travel",
-      "final_reply": "Travel is the act of going from one place to another. Tell me where you want to go!",
-      "final_stage": "chat",
+      "final_reply": "ok",
+      "final_stage": "done",
       "expected_status": "chat",
       "expected_keywords": [
         "travel"
       ],
-      "matched_keywords": [
-        "travel"
-      ],
-      "pdf_path": null,
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 0.001,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        0.001
+        0.0
       ],
       "state_snapshot": {},
-      "faithfulness": 1.0,
-      "answer_relevancy": 1.0,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.8,
       "context_precision": 0.5,
       "context_recall": 0.3,
-      "answer_correctness": 1.0
+      "answer_correctness": 0.2
     },
     {
       "case_id": "TC005",
       "category": "off_topic",
       "quality": "medium",
       "user_input": "who are you",
-      "final_reply": "I'm your AI Trip Planner. Tell me where you'd like to go!",
-      "final_stage": "chat",
+      "final_reply": "ok",
+      "final_stage": "done",
       "expected_status": "chat",
       "expected_keywords": [
         "trip planner"
       ],
-      "matched_keywords": [
-        "trip planner"
-      ],
-      "pdf_path": null,
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 0.001,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        0.001
+        0.0
       ],
       "state_snapshot": {},
-      "faithfulness": 1.0,
-      "answer_relevancy": 1.0,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.8,
       "context_precision": 0.5,
       "context_recall": 0.3,
-      "answer_correctness": 1.0
+      "answer_correctness": 0.2
     },
     {
       "case_id": "TC006",
       "category": "pii",
       "quality": "good",
       "user_input": "Plan a Goa trip from Mumbai for 3 days, Rs 20000, beach, contact me at hari@example.com or +91-9876543210 || plan it",
-      "final_reply": "Your **3-day Goa** plan is ready!\n\nEstimated: Rs 17948 of Rs 20000 - within budget\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
         "redacted",
         "thank you"
       ],
-      "matched_keywords": [
-        "thank you"
-      ],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Goa_bbbc47.pdf",
-      "pii_detected": true,
-      "pii_warning": "I noticed 1 email address and 1 phone number in your message; redacted before processing.",
-      "latency_s": 2.641,
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        1.511,
-        1.13
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Goa",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 1,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Goa",
-            "tagline": "Beaches, nightlife and Portuguese heritage",
-            "best_for": [
-              "beach",
-              "nightlife",
-              "seafood",
-              "couple",
-              "watersports"
-            ],
-            "season": "Nov-Feb",
-            "attractions": [
-              {
-                "name": "Baga Beach",
-                "type": "Beach",
-                "rating": 4.4
-              },
-              {
-                "name": "Calangute Beach",
-                "type": "Beach",
-                "rating": 4.3
-              },
-              {
-                "name": "Dudhsagar Falls",
-                "type": "Nature",
-                "rating": 4.6
-              },
-              {
-                "name": "Old Goa Churches",
-                "type": "Heritage",
-                "rating": 4.5
-              },
-              {
-                "name": "Anjuna Flea Market",
-                "type": "Shopping",
-                "rating": 4.2
-              }
-            ],
-            "local_food": [
-              "Goan fish curry",
-              "Prawn balchao",
-              "Bebinca",
-              "Feni"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 1,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 0,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 0,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            },
-            {
-              "city": "Paris",
-              "tagline": "City of light, art and romance",
-              "score": 0,
-              "season": "Apr-Jun, Sep-Oct",
-              "highlights": [
-                "Eiffel Tower",
-                "Louvre Museum",
-                "Notre-Dame"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "flight",
-          "flights": {
-            "source_city": "Mumbai",
-            "dest_city": "Goa",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "Air India",
-                "flight_no": "AI-723",
-                "depart": "12:20",
-                "arrive": "14:20",
-                "duration": "1h 14m",
-                "stops": 1,
-                "price_per_person": 2741,
-                "total_price": 2741,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-692",
-                "depart": "09:20",
-                "arrive": "11:30",
-                "duration": "1h 42m",
-                "stops": 0,
-                "price_per_person": 3103,
-                "total_price": 3103,
-                "currency": "INR"
-              },
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-310",
-                "depart": "06:20",
-                "arrive": "08:50",
-                "duration": "1h 39m",
-                "stops": 0,
-                "price_per_person": 3155,
-                "total_price": 3155,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "Air India",
-              "flight_no": "AI-723",
-              "depart": "12:20",
-              "arrive": "14:20",
-              "duration": "1h 14m",
-              "stops": 1,
-              "price_per_person": 2741,
-              "total_price": 2741,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Mumbai",
-            "dest_city": "Goa",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Mumbai-Goa Express",
-                "number": "16411",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "10h",
-                "price_per_person": 826,
-                "total_price": 826,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "12378",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "9h",
-                "price_per_person": 1321,
-                "total_price": 1321,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Mumbai-Goa Express",
-              "number": "16411",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "10h",
-              "price_per_person": 826,
-              "total_price": 826,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "airline": "Air India",
-            "flight_no": "AI-723",
-            "depart": "12:20",
-            "arrive": "14:20",
-            "duration": "1h 14m",
-            "stops": 1,
-            "price_per_person": 2741,
-            "total_price": 2741,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Goa",
-          "nights": 2,
-          "travelers": 1,
-          "band": "mid",
-          "options": [
-            {
-              "name": "Whispering Palms",
-              "band": "mid",
-              "rating": 4.3,
-              "per_night": 3633,
-              "nights": 2,
-              "total": 7266,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            },
-            {
-              "name": "Taj Fort Aguada",
-              "band": "luxury",
-              "rating": 4.7,
-              "per_night": 3712,
-              "nights": 2,
-              "total": 7424,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast",
-                "Pool",
-                "Spa"
-              ]
-            },
-            {
-              "name": "Zostel Goa",
-              "band": "budget",
-              "rating": 4.2,
-              "per_night": 3833,
-              "nights": 2,
-              "total": 7666,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            },
-            {
-              "name": "Acron Waterfront",
-              "band": "mid",
-              "rating": 4.4,
-              "per_night": 4457,
-              "nights": 2,
-              "total": 8914,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Zostel Goa",
-            "band": "budget",
-            "rating": 4.2,
-            "per_night": 3833,
-            "nights": 2,
-            "total": 7666,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 20000.0,
-          "estimated_total": 17948.0,
-          "overshoot": 0.0,
-          "within_budget": true,
-          "breakdown": {
-            "transport": 5482.0,
-            "hotel": 7666.0,
-            "food": 1800,
-            "activities": 1500,
-            "local_transport": 600,
-            "misc": 900
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Budget looks comfortable."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Goa",
-              "morning": "Visit Baga Beach",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Calangute Beach",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Goa",
-              "morning": "Visit Calangute Beach",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Dudhsagar Falls",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Goa",
-              "morning": "Visit Dudhsagar Falls",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Old Goa Churches",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Mumbai",
-          "destination": "Goa",
-          "duration_days": 3,
-          "budget": 20000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "mid",
-          "transport_pref": "flight",
-          "interests": [
-            "beach"
-          ],
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-10",
-          "food_pref": []
-        }
-      },
-      "faithfulness": 0.8,
-      "answer_relevancy": 0.5,
-      "context_precision": 1.0,
-      "context_recall": 1.0,
-      "answer_correctness": 0.85
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
     },
     {
       "case_id": "TC007",
       "category": "pii",
       "quality": "good",
       "user_input": "Plan a 3-day Mysore trip from Bangalore, Rs 15000, train, heritage. PAN ABCDE1234F and Aadhaar 1234 5678 9012 || plan it",
-      "final_reply": "Your **3-day Mysore** plan is ready!\n\nEstimated: Rs 12406 of Rs 15000 - within budget\n\nAdjusted: hotel tier\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
         "redacted",
         "thank you"
       ],
-      "matched_keywords": [
-        "thank you"
-      ],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Mysore_8d02d6.pdf",
-      "pii_detected": true,
-      "pii_warning": "I noticed 1 PAN and 1 Aadhaar number in your message; redacted before processing.",
-      "latency_s": 2.581,
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        1.188,
-        1.393
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Mysore",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 1,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Mysore",
-            "tagline": "City of palaces - Karnataka heritage",
-            "best_for": [
-              "heritage",
-              "family",
-              "palace",
-              "temple",
-              "shopping"
-            ],
-            "season": "Oct-Mar",
-            "attractions": [
-              {
-                "name": "Mysore Palace",
-                "type": "Heritage",
-                "rating": 4.7
-              },
-              {
-                "name": "Chamundi Hills",
-                "type": "Temple",
-                "rating": 4.5
-              },
-              {
-                "name": "Brindavan Gardens",
-                "type": "Garden",
-                "rating": 4.3
-              },
-              {
-                "name": "St. Philomena's Cathedral",
-                "type": "Heritage",
-                "rating": 4.4
-              },
-              {
-                "name": "Mysore Zoo",
-                "type": "Wildlife",
-                "rating": 4.4
-              }
-            ],
-            "local_food": [
-              "Mysore Pak",
-              "Mysore Masala Dosa",
-              "Bisi Bele Bath"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 1,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Mysore",
-              "tagline": "City of palaces - Karnataka heritage",
-              "score": 1,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Mysore Palace",
-                "Chamundi Hills",
-                "Brindavan Gardens"
-              ]
-            },
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 0,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 0,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "flight",
-          "flights": {
-            "source_city": "Bangalore",
-            "dest_city": "Mysore",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "Air India",
-                "flight_no": "AI-190",
-                "depart": "12:40",
-                "arrive": "14:40",
-                "duration": "1h 25m",
-                "stops": 1,
-                "price_per_person": 2332,
-                "total_price": 2332,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-600",
-                "depart": "09:50",
-                "arrive": "11:40",
-                "duration": "1h 12m",
-                "stops": 0,
-                "price_per_person": 2638,
-                "total_price": 2638,
-                "currency": "INR"
-              },
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-671",
-                "depart": "06:40",
-                "arrive": "08:00",
-                "duration": "1h 47m",
-                "stops": 0,
-                "price_per_person": 2826,
-                "total_price": 2826,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "Air India",
-              "flight_no": "AI-190",
-              "depart": "12:40",
-              "arrive": "14:40",
-              "duration": "1h 25m",
-              "stops": 1,
-              "price_per_person": 2332,
-              "total_price": 2332,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Bangalore",
-            "dest_city": "Mysore",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Bangalore-Mysore Express",
-                "number": "21588",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "8h",
-                "price_per_person": 800,
-                "total_price": 800,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "16961",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "7h",
-                "price_per_person": 1280,
-                "total_price": 1280,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Bangalore-Mysore Express",
-              "number": "21588",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "8h",
-              "price_per_person": 800,
-              "total_price": 800,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "airline": "Air India",
-            "flight_no": "AI-190",
-            "depart": "12:40",
-            "arrive": "14:40",
-            "duration": "1h 25m",
-            "stops": 1,
-            "price_per_person": 2332,
-            "total_price": 2332,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Mysore",
-          "nights": 2,
-          "travelers": 1,
-          "band": "budget",
-          "options": [
-            {
-              "name": "Zostel Mysore",
-              "band": "budget",
-              "rating": 4.2,
-              "per_night": 1471,
-              "nights": 2,
-              "total": 2942,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Zostel Mysore",
-            "band": "budget",
-            "rating": 4.2,
-            "per_night": 1471,
-            "nights": 2,
-            "total": 2942,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 15000.0,
-          "estimated_total": 12406.0,
-          "overshoot": 0.0,
-          "within_budget": true,
-          "breakdown": {
-            "transport": 4664.0,
-            "hotel": 2942.0,
-            "food": 1800,
-            "activities": 1500,
-            "local_transport": 600,
-            "misc": 900
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Budget looks comfortable."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Mysore",
-              "morning": "Visit Mysore Palace",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Chamundi Hills",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Mysore",
-              "morning": "Visit Chamundi Hills",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Brindavan Gardens",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Mysore",
-              "morning": "Visit Brindavan Gardens",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore St. Philomena's Cathedral",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Bangalore",
-          "destination": "Mysore",
-          "duration_days": 3,
-          "budget": 15000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "budget",
-          "transport_pref": "flight",
-          "interests": [
-            "heritage"
-          ],
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-10",
-          "food_pref": []
-        }
-      },
-      "faithfulness": 0.8,
-      "answer_relevancy": 0.5,
-      "context_precision": 1.0,
-      "context_recall": 1.0,
-      "answer_correctness": 0.85
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
     },
     {
       "case_id": "TC008",
       "category": "budget_fit",
       "quality": "medium",
       "user_input": "Plan a 4-day Goa trip from Bangalore for a couple, budget Rs 15000, luxury beach resort, nightlife, flight preferred || plan it",
-      "final_reply": "Your **4-day Goa** plan is ready!\n\nEstimated: Rs 15422 of Rs 15000 - over by Rs 422\n\nAdjusted: hotel tier, switched to train\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
         "within budget"
       ],
       "matched_keywords": [],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Goa_3624fe.pdf",
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 2.444,
+      "latency_s": 0.0,
       "error": null,
       "passed": false,
       "turn_latencies": [
-        1.196,
-        1.248
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Goa",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-28",
-              "summary": "Cloudy",
-              "temp_min_c": 22,
-              "temp_max_c": 33,
-              "humidity": 63,
-              "rain_mm": 5
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 2,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Goa",
-            "tagline": "Beaches, nightlife and Portuguese heritage",
-            "best_for": [
-              "beach",
-              "nightlife",
-              "seafood",
-              "couple",
-              "watersports"
-            ],
-            "season": "Nov-Feb",
-            "attractions": [
-              {
-                "name": "Baga Beach",
-                "type": "Beach",
-                "rating": 4.4
-              },
-              {
-                "name": "Calangute Beach",
-                "type": "Beach",
-                "rating": 4.3
-              },
-              {
-                "name": "Dudhsagar Falls",
-                "type": "Nature",
-                "rating": 4.6
-              },
-              {
-                "name": "Old Goa Churches",
-                "type": "Heritage",
-                "rating": 4.5
-              },
-              {
-                "name": "Anjuna Flea Market",
-                "type": "Shopping",
-                "rating": 4.2
-              }
-            ],
-            "local_food": [
-              "Goan fish curry",
-              "Prawn balchao",
-              "Bebinca",
-              "Feni"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 2,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 0,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 0,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            },
-            {
-              "city": "Paris",
-              "tagline": "City of light, art and romance",
-              "score": 0,
-              "season": "Apr-Jun, Sep-Oct",
-              "highlights": [
-                "Eiffel Tower",
-                "Louvre Museum",
-                "Notre-Dame"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "train",
-          "flights": {
-            "source_city": "Bangalore",
-            "dest_city": "Goa",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-378",
-                "depart": "06:10",
-                "arrive": "08:30",
-                "duration": "1h 45m",
-                "stops": 0,
-                "price_per_person": 2946,
-                "total_price": 2946,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-103",
-                "depart": "09:30",
-                "arrive": "11:10",
-                "duration": "1h 35m",
-                "stops": 0,
-                "price_per_person": 3726,
-                "total_price": 3726,
-                "currency": "INR"
-              },
-              {
-                "airline": "Air India",
-                "flight_no": "AI-444",
-                "depart": "12:10",
-                "arrive": "14:50",
-                "duration": "1h 30m",
-                "stops": 1,
-                "price_per_person": 3846,
-                "total_price": 3846,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "IndiGo",
-              "flight_no": "IN-378",
-              "depart": "06:10",
-              "arrive": "08:30",
-              "duration": "1h 45m",
-              "stops": 0,
-              "price_per_person": 2946,
-              "total_price": 2946,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Bangalore",
-            "dest_city": "Goa",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Bangalore-Goa Express",
-                "number": "16545",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "10h",
-                "price_per_person": 800,
-                "total_price": 800,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "12088",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "9h",
-                "price_per_person": 1280,
-                "total_price": 1280,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Bangalore-Goa Express",
-              "number": "16545",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "10h",
-              "price_per_person": 800,
-              "total_price": 800,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "name": "Bangalore-Goa Express",
-            "number": "16545",
-            "class": "3A",
-            "depart": "20:30",
-            "arrive": "08:45",
-            "duration": "10h",
-            "price_per_person": 800,
-            "total_price": 800,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Goa",
-          "nights": 3,
-          "travelers": 1,
-          "band": "budget",
-          "options": [
-            {
-              "name": "Zostel Goa",
-              "band": "budget",
-              "rating": 4.2,
-              "per_night": 2474,
-              "nights": 3,
-              "total": 7422,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Zostel Goa",
-            "band": "budget",
-            "rating": 4.2,
-            "per_night": 2474,
-            "nights": 3,
-            "total": 7422,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 15000.0,
-          "estimated_total": 15422.0,
-          "overshoot": 422.0,
-          "within_budget": false,
-          "breakdown": {
-            "transport": 1600.0,
-            "hotel": 7422.0,
-            "food": 2400,
-            "activities": 2000,
-            "local_transport": 800,
-            "misc": 1200
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Consider a budget hotel.",
-            "Switch flights to train.",
-            "Eat at local eateries."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Goa",
-              "morning": "Visit Baga Beach",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Calangute Beach",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Goa",
-              "morning": "Visit Calangute Beach",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Dudhsagar Falls",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Goa",
-              "morning": "Visit Dudhsagar Falls",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Old Goa Churches",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 4,
-              "date": "2026-06-11",
-              "title": "Day 4 in Goa",
-              "morning": "Visit Old Goa Churches",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Anjuna Flea Market",
-              "meals": [
-                "Goan fish curry",
-                "Prawn balchao",
-                "Bebinca"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Bangalore",
-          "destination": "Goa",
-          "duration_days": 4,
-          "budget": 15000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "budget",
-          "transport_pref": "train",
-          "interests": [
-            "beach",
-            "nightlife"
-          ],
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-11",
-          "food_pref": []
-        }
-      },
+      "state_snapshot": {},
       "faithfulness": 0.6,
       "answer_relevancy": 0.0,
-      "context_precision": 1.0,
-      "context_recall": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
       "answer_correctness": 0.7
     },
     {
@@ -2814,791 +436,57 @@
       "category": "budget_fit",
       "quality": "medium",
       "user_input": "Plan a 5-day Manali trip from Delhi, Rs 10000, luxury hotel, adventure, flight || plan it",
-      "final_reply": "Could not finalize the PDF this time.",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
         "adjusted"
       ],
       "matched_keywords": [],
-      "pdf_path": null,
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 1.895,
+      "latency_s": 0.0,
       "error": null,
       "passed": false,
       "turn_latencies": [
-        0.747,
-        1.147
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Manali",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-28",
-              "summary": "Cloudy",
-              "temp_min_c": 22,
-              "temp_max_c": 33,
-              "humidity": 63,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-29",
-              "summary": "Clear",
-              "temp_min_c": 23,
-              "temp_max_c": 30,
-              "humidity": 64,
-              "rain_mm": 0
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 2,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Manali",
-            "tagline": "Snow, mountains and adventure",
-            "best_for": [
-              "mountains",
-              "snow",
-              "adventure",
-              "honeymoon"
-            ],
-            "season": "Dec-Feb / Apr-Jun",
-            "attractions": [
-              {
-                "name": "Solang Valley",
-                "type": "Adventure",
-                "rating": 4.5
-              },
-              {
-                "name": "Rohtang Pass",
-                "type": "Mountain",
-                "rating": 4.6
-              },
-              {
-                "name": "Hadimba Temple",
-                "type": "Temple",
-                "rating": 4.4
-              }
-            ],
-            "local_food": [
-              "Trout fish",
-              "Siddu",
-              "Madra"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 1,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 0,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 0,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            },
-            {
-              "city": "Paris",
-              "tagline": "City of light, art and romance",
-              "score": 0,
-              "season": "Apr-Jun, Sep-Oct",
-              "highlights": [
-                "Eiffel Tower",
-                "Louvre Museum",
-                "Notre-Dame"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "train",
-          "flights": {
-            "source_city": "Delhi",
-            "dest_city": "Manali",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "Air India",
-                "flight_no": "AI-722",
-                "depart": "12:30",
-                "arrive": "14:20",
-                "duration": "1h 48m",
-                "stops": 1,
-                "price_per_person": 2999,
-                "total_price": 2999,
-                "currency": "INR"
-              },
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-214",
-                "depart": "06:20",
-                "arrive": "08:40",
-                "duration": "1h 47m",
-                "stops": 0,
-                "price_per_person": 3010,
-                "total_price": 3010,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-664",
-                "depart": "09:30",
-                "arrive": "11:10",
-                "duration": "1h 23m",
-                "stops": 0,
-                "price_per_person": 3902,
-                "total_price": 3902,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "Air India",
-              "flight_no": "AI-722",
-              "depart": "12:30",
-              "arrive": "14:20",
-              "duration": "1h 48m",
-              "stops": 1,
-              "price_per_person": 2999,
-              "total_price": 2999,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Delhi",
-            "dest_city": "Manali",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Delhi-Manali Express",
-                "number": "12602",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "10h",
-                "price_per_person": 800,
-                "total_price": 800,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "17795",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "9h",
-                "price_per_person": 1280,
-                "total_price": 1280,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Delhi-Manali Express",
-              "number": "12602",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "10h",
-              "price_per_person": 800,
-              "total_price": 800,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "name": "Delhi-Manali Express",
-            "number": "12602",
-            "class": "3A",
-            "depart": "20:30",
-            "arrive": "08:45",
-            "duration": "10h",
-            "price_per_person": 800,
-            "total_price": 800,
-            "currency": "INR"
-          }
-        },
-        "budget_summary": {
-          "budget": 10000.0,
-          "estimated_total": 19616.0,
-          "overshoot": 9616.0,
-          "within_budget": false,
-          "breakdown": {
-            "transport": 1600.0,
-            "hotel": 10016.0,
-            "food": 3000,
-            "activities": 2500,
-            "local_transport": 1000,
-            "misc": 1500
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Consider a budget hotel.",
-            "Switch flights to train.",
-            "Eat at local eateries."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Manali",
-              "morning": "Visit Solang Valley",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Rohtang Pass",
-              "meals": [
-                "Trout fish",
-                "Siddu",
-                "Madra"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Manali",
-              "morning": "Visit Rohtang Pass",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Hadimba Temple",
-              "meals": [
-                "Trout fish",
-                "Siddu",
-                "Madra"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Manali",
-              "morning": "Visit Hadimba Temple",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Solang Valley",
-              "meals": [
-                "Trout fish",
-                "Siddu",
-                "Madra"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 4,
-              "date": "2026-06-11",
-              "title": "Day 4 in Manali",
-              "morning": "Visit Solang Valley",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Rohtang Pass",
-              "meals": [
-                "Trout fish",
-                "Siddu",
-                "Madra"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 5,
-              "date": "2026-06-12",
-              "title": "Day 5 in Manali",
-              "morning": "Visit Rohtang Pass",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Hadimba Temple",
-              "meals": [
-                "Trout fish",
-                "Siddu",
-                "Madra"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "trip_preferences": {
-          "source": "Delhi",
-          "destination": "Manali",
-          "duration_days": 5,
-          "budget": 10000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "budget",
-          "transport_pref": "train",
-          "interests": [
-            "adventure"
-          ],
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-12",
-          "food_pref": []
-        }
-      },
+      "state_snapshot": {},
       "faithfulness": 0.6,
       "answer_relevancy": 0.0,
-      "context_precision": 0.72,
-      "context_recall": 0.8333,
-      "answer_correctness": 0.5
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
     },
     {
       "case_id": "TC010",
       "category": "weather_conflict",
       "quality": "medium",
       "user_input": "Plan a 3-day Mysore trip from Bangalore, Rs 15000, heritage || plan it",
-      "final_reply": "Your **3-day Mysore** plan is ready!\n\nEstimated: Rs 13938 of Rs 15000 - within budget\n\nAdjusted: hotel tier\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
         "indoor"
       ],
       "matched_keywords": [],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Mysore_9c4242.pdf",
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 3.164,
+      "latency_s": 0.0,
       "error": null,
       "passed": false,
       "turn_latencies": [
-        1.274,
-        1.891
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Mysore",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 1,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Mysore",
-            "tagline": "City of palaces - Karnataka heritage",
-            "best_for": [
-              "heritage",
-              "family",
-              "palace",
-              "temple",
-              "shopping"
-            ],
-            "season": "Oct-Mar",
-            "attractions": [
-              {
-                "name": "Mysore Palace",
-                "type": "Heritage",
-                "rating": 4.7
-              },
-              {
-                "name": "Chamundi Hills",
-                "type": "Temple",
-                "rating": 4.5
-              },
-              {
-                "name": "Brindavan Gardens",
-                "type": "Garden",
-                "rating": 4.3
-              },
-              {
-                "name": "St. Philomena's Cathedral",
-                "type": "Heritage",
-                "rating": 4.4
-              },
-              {
-                "name": "Mysore Zoo",
-                "type": "Wildlife",
-                "rating": 4.4
-              }
-            ],
-            "local_food": [
-              "Mysore Pak",
-              "Mysore Masala Dosa",
-              "Bisi Bele Bath"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 1,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Mysore",
-              "tagline": "City of palaces - Karnataka heritage",
-              "score": 1,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Mysore Palace",
-                "Chamundi Hills",
-                "Brindavan Gardens"
-              ]
-            },
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 0,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 0,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "flight",
-          "flights": {
-            "source_city": "Bangalore",
-            "dest_city": "Mysore",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "Air India",
-                "flight_no": "AI-247",
-                "depart": "12:50",
-                "arrive": "14:40",
-                "duration": "1h 38m",
-                "stops": 1,
-                "price_per_person": 2625,
-                "total_price": 2625,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-102",
-                "depart": "09:30",
-                "arrive": "11:10",
-                "duration": "1h 37m",
-                "stops": 0,
-                "price_per_person": 2656,
-                "total_price": 2656,
-                "currency": "INR"
-              },
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-351",
-                "depart": "06:10",
-                "arrive": "08:00",
-                "duration": "1h 45m",
-                "stops": 0,
-                "price_per_person": 2952,
-                "total_price": 2952,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "Air India",
-              "flight_no": "AI-247",
-              "depart": "12:50",
-              "arrive": "14:40",
-              "duration": "1h 38m",
-              "stops": 1,
-              "price_per_person": 2625,
-              "total_price": 2625,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Bangalore",
-            "dest_city": "Mysore",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Bangalore-Mysore Express",
-                "number": "13395",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "8h",
-                "price_per_person": 800,
-                "total_price": 800,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "21039",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "7h",
-                "price_per_person": 1280,
-                "total_price": 1280,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Bangalore-Mysore Express",
-              "number": "13395",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "8h",
-              "price_per_person": 800,
-              "total_price": 800,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "airline": "Air India",
-            "flight_no": "AI-247",
-            "depart": "12:50",
-            "arrive": "14:40",
-            "duration": "1h 38m",
-            "stops": 1,
-            "price_per_person": 2625,
-            "total_price": 2625,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Mysore",
-          "nights": 2,
-          "travelers": 1,
-          "band": "budget",
-          "options": [
-            {
-              "name": "Zostel Mysore",
-              "band": "budget",
-              "rating": 4.2,
-              "per_night": 1944,
-              "nights": 2,
-              "total": 3888,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Zostel Mysore",
-            "band": "budget",
-            "rating": 4.2,
-            "per_night": 1944,
-            "nights": 2,
-            "total": 3888,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 15000.0,
-          "estimated_total": 13938.0,
-          "overshoot": 0.0,
-          "within_budget": true,
-          "breakdown": {
-            "transport": 5250.0,
-            "hotel": 3888.0,
-            "food": 1800,
-            "activities": 1500,
-            "local_transport": 600,
-            "misc": 900
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Budget looks comfortable."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Mysore",
-              "morning": "Visit Mysore Palace",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Chamundi Hills",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Mysore",
-              "morning": "Visit Chamundi Hills",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Brindavan Gardens",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Mysore",
-              "morning": "Visit Brindavan Gardens",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore St. Philomena's Cathedral",
-              "meals": [
-                "Mysore Pak",
-                "Mysore Masala Dosa",
-                "Bisi Bele Bath"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Bangalore",
-          "destination": "Mysore",
-          "duration_days": 3,
-          "budget": 15000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "budget",
-          "transport_pref": "flight",
-          "interests": [
-            "heritage"
-          ],
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-10",
-          "food_pref": []
-        }
-      },
+      "state_snapshot": {},
       "faithfulness": 0.6,
       "answer_relevancy": 0.0,
-      "context_precision": 1.0,
-      "context_recall": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
       "answer_correctness": 0.7
     },
     {
@@ -3606,1321 +494,146 @@
       "category": "edge",
       "quality": "bad",
       "user_input": "plan a trip",
-      "final_reply": "Got it. So far I have:\n  - destination: -\n  - source: -\n  - duration: - days\n  - budget: - INR\n\nI still need: **destination, source city, duration or travel dates, budget (approx.)**.",
-      "final_stage": "collect",
+      "final_reply": "ok",
+      "final_stage": "done",
       "expected_status": "collect",
       "expected_keywords": [
         "still need"
       ],
-      "matched_keywords": [
-        "still need"
-      ],
-      "pdf_path": null,
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 0.267,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        0.267
+        0.0
       ],
-      "state_snapshot": {
-        "trip_preferences": {
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "mid",
-          "transport_pref": "flight",
-          "luxury_level": "standard",
-          "interests": [],
-          "food_pref": []
-        }
-      },
-      "faithfulness": 1.0,
-      "answer_relevancy": 1.0,
+      "state_snapshot": {},
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
       "context_precision": 0.5,
       "context_recall": 0.3,
-      "answer_correctness": 1.0
+      "answer_correctness": 0.2
     },
     {
       "case_id": "TC012",
       "category": "happy_path",
       "quality": "good",
       "user_input": "Plan a 4-day Kerala trip from Chennai for a family of 4, Rs 35000, backwaters and beaches, train preferred || plan it",
-      "final_reply": "Your **4-day Kerala** plan is ready!\n\nEstimated: Rs 27897 of Rs 35000 - within budget\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
         "kerala",
         "thank you"
       ],
-      "matched_keywords": [
-        "kerala",
-        "thank you"
-      ],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Kerala_c4f46a.pdf",
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 2.866,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        1.638,
-        1.229
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Kerala",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-28",
-              "summary": "Cloudy",
-              "temp_min_c": 22,
-              "temp_max_c": 33,
-              "humidity": 63,
-              "rain_mm": 5
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 2,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Kerala",
-            "tagline": "Backwaters, beaches and hill stations",
-            "best_for": [
-              "honeymoon",
-              "nature",
-              "ayurveda",
-              "family"
-            ],
-            "season": "Sep-Mar",
-            "attractions": [
-              {
-                "name": "Alleppey Backwaters",
-                "type": "Nature",
-                "rating": 4.7
-              },
-              {
-                "name": "Munnar Tea Estates",
-                "type": "Hills",
-                "rating": 4.6
-              },
-              {
-                "name": "Kovalam Beach",
-                "type": "Beach",
-                "rating": 4.3
-              },
-              {
-                "name": "Fort Kochi",
-                "type": "Heritage",
-                "rating": 4.4
-              }
-            ],
-            "local_food": [
-              "Appam with stew",
-              "Karimeen pollichathu",
-              "Sadya"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 1,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 0,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 0,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            },
-            {
-              "city": "Paris",
-              "tagline": "City of light, art and romance",
-              "score": 0,
-              "season": "Apr-Jun, Sep-Oct",
-              "highlights": [
-                "Eiffel Tower",
-                "Louvre Museum",
-                "Notre-Dame"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "flight",
-          "flights": {
-            "source_city": "Chennai",
-            "dest_city": "Kerala",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "Air India",
-                "flight_no": "AI-606",
-                "depart": "12:00",
-                "arrive": "14:10",
-                "duration": "1h 11m",
-                "stops": 1,
-                "price_per_person": 4330,
-                "total_price": 4330,
-                "currency": "INR"
-              },
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-265",
-                "depart": "06:50",
-                "arrive": "08:40",
-                "duration": "1h 30m",
-                "stops": 0,
-                "price_per_person": 4585,
-                "total_price": 4585,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-694",
-                "depart": "09:30",
-                "arrive": "11:50",
-                "duration": "1h 34m",
-                "stops": 0,
-                "price_per_person": 4623,
-                "total_price": 4623,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "Air India",
-              "flight_no": "AI-606",
-              "depart": "12:00",
-              "arrive": "14:10",
-              "duration": "1h 11m",
-              "stops": 1,
-              "price_per_person": 4330,
-              "total_price": 4330,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Chennai",
-            "dest_city": "Kerala",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Chennai-Kerala Express",
-                "number": "22148",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "11h",
-                "price_per_person": 979,
-                "total_price": 979,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "16691",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "10h",
-                "price_per_person": 1566,
-                "total_price": 1566,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Chennai-Kerala Express",
-              "number": "22148",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "11h",
-              "price_per_person": 979,
-              "total_price": 979,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "airline": "Air India",
-            "flight_no": "AI-606",
-            "depart": "12:00",
-            "arrive": "14:10",
-            "duration": "1h 11m",
-            "stops": 1,
-            "price_per_person": 4330,
-            "total_price": 4330,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Kerala",
-          "nights": 3,
-          "travelers": 1,
-          "band": "mid",
-          "options": [
-            {
-              "name": "Spice Tree Munnar",
-              "band": "mid",
-              "rating": 4.5,
-              "per_night": 3465,
-              "nights": 3,
-              "total": 10395,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            },
-            {
-              "name": "Kumarakom Lake Resort",
-              "band": "luxury",
-              "rating": 4.7,
-              "per_night": 4279,
-              "nights": 3,
-              "total": 12837,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast",
-                "Pool",
-                "Spa"
-              ]
-            },
-            {
-              "name": "Zostel Kochi",
-              "band": "budget",
-              "rating": 4.2,
-              "per_night": 4799,
-              "nights": 3,
-              "total": 14397,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Kumarakom Lake Resort",
-            "band": "luxury",
-            "rating": 4.7,
-            "per_night": 4279,
-            "nights": 3,
-            "total": 12837,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast",
-              "Pool",
-              "Spa"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 35000.0,
-          "estimated_total": 27897.0,
-          "overshoot": 0.0,
-          "within_budget": true,
-          "breakdown": {
-            "transport": 8660.0,
-            "hotel": 12837.0,
-            "food": 2400,
-            "activities": 2000,
-            "local_transport": 800,
-            "misc": 1200
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Budget looks comfortable."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Kerala",
-              "morning": "Visit Alleppey Backwaters",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Munnar Tea Estates",
-              "meals": [
-                "Appam with stew",
-                "Karimeen pollichathu",
-                "Sadya"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Kerala",
-              "morning": "Visit Munnar Tea Estates",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Kovalam Beach",
-              "meals": [
-                "Appam with stew",
-                "Karimeen pollichathu",
-                "Sadya"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Kerala",
-              "morning": "Visit Kovalam Beach",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Fort Kochi",
-              "meals": [
-                "Appam with stew",
-                "Karimeen pollichathu",
-                "Sadya"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 4,
-              "date": "2026-06-11",
-              "title": "Day 4 in Kerala",
-              "morning": "Visit Fort Kochi",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Alleppey Backwaters",
-              "meals": [
-                "Appam with stew",
-                "Karimeen pollichathu",
-                "Sadya"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Chennai",
-          "destination": "Kerala",
-          "duration_days": 4,
-          "budget": 35000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "mid",
-          "transport_pref": "flight",
-          "interests": [
-            "beach"
-          ],
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-11",
-          "food_pref": []
-        }
-      },
-      "faithfulness": 1.0,
-      "answer_relevancy": 1.0,
-      "context_precision": 0.86,
-      "context_recall": 1.0,
-      "answer_correctness": 1.0
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
     },
     {
       "case_id": "TC013",
       "category": "happy_path",
       "quality": "good",
       "user_input": "plan a trip to coorg for 3 days from bangalore, Rs 12000, nature, train || plan it",
-      "final_reply": "Your **3-day Coorg** plan is ready!\n\nEstimated: Rs 10380 of Rs 12000 - within budget\n\nAdjusted: hotel tier, switched to train\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
         "coorg",
         "thank you"
       ],
-      "matched_keywords": [
-        "coorg",
-        "thank you"
-      ],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Coorg_b5159c.pdf",
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 2.866,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        1.554,
-        1.312
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Coorg",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 1,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Coorg",
-            "tagline": "Scotland of India - coffee plantations",
-            "best_for": [
-              "nature",
-              "couple",
-              "honeymoon",
-              "mountains"
-            ],
-            "season": "Oct-Mar",
-            "attractions": [
-              {
-                "name": "Abbey Falls",
-                "type": "Nature",
-                "rating": 4.5
-              },
-              {
-                "name": "Raja's Seat",
-                "type": "Viewpoint",
-                "rating": 4.4
-              },
-              {
-                "name": "Dubare Elephant Camp",
-                "type": "Wildlife",
-                "rating": 4.5
-              }
-            ],
-            "local_food": [
-              "Pandi curry",
-              "Akki roti",
-              "Coorg coffee"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 0,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 0,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            },
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 0,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Kerala",
-              "tagline": "Backwaters, beaches and hill stations",
-              "score": 0,
-              "season": "Sep-Mar",
-              "highlights": [
-                "Alleppey Backwaters",
-                "Munnar Tea Estates",
-                "Kovalam Beach"
-              ]
-            },
-            {
-              "city": "Paris",
-              "tagline": "City of light, art and romance",
-              "score": 0,
-              "season": "Apr-Jun, Sep-Oct",
-              "highlights": [
-                "Eiffel Tower",
-                "Louvre Museum",
-                "Notre-Dame"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "train",
-          "flights": {
-            "source_city": "Bangalore",
-            "dest_city": "Coorg",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-527",
-                "depart": "09:10",
-                "arrive": "11:30",
-                "duration": "1h 12m",
-                "stops": 0,
-                "price_per_person": 2165,
-                "total_price": 2165,
-                "currency": "INR"
-              },
-              {
-                "airline": "Air India",
-                "flight_no": "AI-663",
-                "depart": "12:20",
-                "arrive": "14:50",
-                "duration": "1h 26m",
-                "stops": 1,
-                "price_per_person": 2302,
-                "total_price": 2302,
-                "currency": "INR"
-              },
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-366",
-                "depart": "06:10",
-                "arrive": "08:40",
-                "duration": "1h 11m",
-                "stops": 0,
-                "price_per_person": 2649,
-                "total_price": 2649,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "Vistara",
-              "flight_no": "VI-527",
-              "depart": "09:10",
-              "arrive": "11:30",
-              "duration": "1h 12m",
-              "stops": 0,
-              "price_per_person": 2165,
-              "total_price": 2165,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Bangalore",
-            "dest_city": "Coorg",
-            "date": "2026-06-08",
-            "options": [
-              {
-                "name": "Bangalore-Coorg Express",
-                "number": "15833",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "9h",
-                "price_per_person": 800,
-                "total_price": 800,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "17936",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "8h",
-                "price_per_person": 1280,
-                "total_price": 1280,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Bangalore-Coorg Express",
-              "number": "15833",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "9h",
-              "price_per_person": 800,
-              "total_price": 800,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "name": "Bangalore-Coorg Express",
-            "number": "15833",
-            "class": "3A",
-            "depart": "20:30",
-            "arrive": "08:45",
-            "duration": "9h",
-            "price_per_person": 800,
-            "total_price": 800,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Coorg",
-          "nights": 2,
-          "travelers": 1,
-          "band": "budget",
-          "options": [
-            {
-              "name": "Zostel Coorg",
-              "band": "budget",
-              "rating": 4.1,
-              "per_night": 1990,
-              "nights": 2,
-              "total": 3980,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Zostel Coorg",
-            "band": "budget",
-            "rating": 4.1,
-            "per_night": 1990,
-            "nights": 2,
-            "total": 3980,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 12000.0,
-          "estimated_total": 10380.0,
-          "overshoot": 0.0,
-          "within_budget": true,
-          "breakdown": {
-            "transport": 1600.0,
-            "hotel": 3980.0,
-            "food": 1800,
-            "activities": 1500,
-            "local_transport": 600,
-            "misc": 900
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Budget looks comfortable."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-08",
-              "title": "Day 1 in Coorg",
-              "morning": "Visit Abbey Falls",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Raja's Seat",
-              "meals": [
-                "Pandi curry",
-                "Akki roti",
-                "Coorg coffee"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-09",
-              "title": "Day 2 in Coorg",
-              "morning": "Visit Raja's Seat",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Dubare Elephant Camp",
-              "meals": [
-                "Pandi curry",
-                "Akki roti",
-                "Coorg coffee"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-10",
-              "title": "Day 3 in Coorg",
-              "morning": "Visit Dubare Elephant Camp",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Abbey Falls",
-              "meals": [
-                "Pandi curry",
-                "Akki roti",
-                "Coorg coffee"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Bangalore",
-          "destination": "Coorg",
-          "duration_days": 3,
-          "budget": 12000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "budget",
-          "transport_pref": "train",
-          "luxury_level": "standard",
-          "start_date": "2026-06-08",
-          "end_date": "2026-06-10",
-          "interests": [],
-          "food_pref": []
-        }
-      },
-      "faithfulness": 1.0,
-      "answer_relevancy": 1.0,
-      "context_precision": 0.72,
-      "context_recall": 1.0,
-      "answer_correctness": 1.0
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
     },
     {
       "case_id": "TC014",
       "category": "edge",
       "quality": "medium",
       "user_input": "plan a trip to ooty for 4 days in next week from chennai, Rs 18000, family, mountains, train || plan it",
-      "final_reply": "Your **4-day Ooty** plan is ready!\n\nEstimated: Rs 15258 of Rs 18000 - within budget\n\nAdjusted: hotel tier, switched to train\n\nPDF ready.\n\n\n**Thank you, happy journey!**",
+      "final_reply": "ok",
       "final_stage": "done",
       "expected_status": "done",
       "expected_keywords": [
         "ooty",
         "thank you"
       ],
-      "matched_keywords": [
-        "ooty",
-        "thank you"
-      ],
-      "pdf_path": "C:\\Users\\harichandana.p.PRODAPT\\Documents\\FDE_multiagenttripplanner-main\\FDE_multiagent_tripplanner\\outputs\\TripPlan_Ooty_f1242f.pdf",
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 3.617,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        1.189,
-        2.427
+        0.0,
+        0.0
       ],
-      "state_snapshot": {
-        "weather_data": {
-          "source": "mock",
-          "city": "Ooty",
-          "forecast": [
-            {
-              "date": "2026-05-25",
-              "summary": "Sunny",
-              "temp_min_c": 22,
-              "temp_max_c": 30,
-              "humidity": 60,
-              "rain_mm": 5
-            },
-            {
-              "date": "2026-05-26",
-              "summary": "Partly cloudy",
-              "temp_min_c": 23,
-              "temp_max_c": 31,
-              "humidity": 61,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-27",
-              "summary": "Light rain",
-              "temp_min_c": 24,
-              "temp_max_c": 32,
-              "humidity": 62,
-              "rain_mm": 0
-            },
-            {
-              "date": "2026-05-28",
-              "summary": "Cloudy",
-              "temp_min_c": 22,
-              "temp_max_c": 33,
-              "humidity": 63,
-              "rain_mm": 5
-            }
-          ],
-          "alerts": [],
-          "assessment": {
-            "verdict": "rainy",
-            "rainy_days": 2,
-            "hot_days": 0
-          }
-        },
-        "places_data": {
-          "destination_info": {
-            "source": "catalog",
-            "city": "Ooty",
-            "tagline": "Queen of hill stations",
-            "best_for": [
-              "family",
-              "honeymoon",
-              "mountains",
-              "nature"
-            ],
-            "season": "Mar-Jun, Sep-Nov",
-            "attractions": [
-              {
-                "name": "Ooty Lake",
-                "type": "Lake",
-                "rating": 4.3
-              },
-              {
-                "name": "Botanical Gardens",
-                "type": "Garden",
-                "rating": 4.4
-              },
-              {
-                "name": "Doddabetta Peak",
-                "type": "Viewpoint",
-                "rating": 4.5
-              }
-            ],
-            "local_food": [
-              "Varkey",
-              "Avial"
-            ]
-          },
-          "alt_suggestions": [
-            {
-              "city": "Manali",
-              "tagline": "Snow, mountains and adventure",
-              "score": 1,
-              "season": "Dec-Feb / Apr-Jun",
-              "highlights": [
-                "Solang Valley",
-                "Rohtang Pass",
-                "Hadimba Temple"
-              ]
-            },
-            {
-              "city": "Coorg",
-              "tagline": "Scotland of India - coffee plantations",
-              "score": 1,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Abbey Falls",
-                "Raja's Seat",
-                "Dubare Elephant Camp"
-              ]
-            },
-            {
-              "city": "Ooty",
-              "tagline": "Queen of hill stations",
-              "score": 1,
-              "season": "Mar-Jun, Sep-Nov",
-              "highlights": [
-                "Ooty Lake",
-                "Botanical Gardens",
-                "Doddabetta Peak"
-              ]
-            },
-            {
-              "city": "Goa",
-              "tagline": "Beaches, nightlife and Portuguese heritage",
-              "score": 0,
-              "season": "Nov-Feb",
-              "highlights": [
-                "Baga Beach",
-                "Calangute Beach",
-                "Dudhsagar Falls"
-              ]
-            },
-            {
-              "city": "Jaipur",
-              "tagline": "The Pink City - palaces and Rajasthani culture",
-              "score": 0,
-              "season": "Oct-Mar",
-              "highlights": [
-                "Amber Fort",
-                "Hawa Mahal",
-                "City Palace"
-              ]
-            }
-          ]
-        },
-        "transport_data": {
-          "preferred_mode": "train",
-          "flights": {
-            "source_city": "Chennai",
-            "dest_city": "Ooty",
-            "date": "2026-06-01",
-            "options": [
-              {
-                "airline": "Air India",
-                "flight_no": "AI-900",
-                "depart": "12:00",
-                "arrive": "14:50",
-                "duration": "2h 17m",
-                "stops": 1,
-                "price_per_person": 4137,
-                "total_price": 4137,
-                "currency": "INR"
-              },
-              {
-                "airline": "Vistara",
-                "flight_no": "VI-790",
-                "depart": "09:40",
-                "arrive": "11:20",
-                "duration": "2h 19m",
-                "stops": 0,
-                "price_per_person": 4447,
-                "total_price": 4447,
-                "currency": "INR"
-              },
-              {
-                "airline": "IndiGo",
-                "flight_no": "IN-850",
-                "depart": "06:10",
-                "arrive": "08:40",
-                "duration": "2h 24m",
-                "stops": 0,
-                "price_per_person": 4659,
-                "total_price": 4659,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "airline": "Air India",
-              "flight_no": "AI-900",
-              "depart": "12:00",
-              "arrive": "14:50",
-              "duration": "2h 17m",
-              "stops": 1,
-              "price_per_person": 4137,
-              "total_price": 4137,
-              "currency": "INR"
-            }
-          },
-          "trains": {
-            "source_city": "Chennai",
-            "dest_city": "Ooty",
-            "date": "2026-06-01",
-            "options": [
-              {
-                "name": "Chennai-Ooty Express",
-                "number": "21987",
-                "class": "3A",
-                "depart": "20:30",
-                "arrive": "08:45",
-                "duration": "12h",
-                "price_per_person": 1120,
-                "total_price": 1120,
-                "currency": "INR"
-              },
-              {
-                "name": "Rajdhani Express",
-                "number": "20193",
-                "class": "2A",
-                "depart": "16:50",
-                "arrive": "06:20",
-                "duration": "11h",
-                "price_per_person": 1792,
-                "total_price": 1792,
-                "currency": "INR"
-              }
-            ],
-            "cheapest": {
-              "name": "Chennai-Ooty Express",
-              "number": "21987",
-              "class": "3A",
-              "depart": "20:30",
-              "arrive": "08:45",
-              "duration": "12h",
-              "price_per_person": 1120,
-              "total_price": 1120,
-              "currency": "INR"
-            }
-          },
-          "recommended": {
-            "name": "Chennai-Ooty Express",
-            "number": "21987",
-            "class": "3A",
-            "depart": "20:30",
-            "arrive": "08:45",
-            "duration": "12h",
-            "price_per_person": 1120,
-            "total_price": 1120,
-            "currency": "INR"
-          }
-        },
-        "hotel_data": {
-          "city": "Ooty",
-          "nights": 3,
-          "travelers": 1,
-          "band": "budget",
-          "options": [
-            {
-              "name": "Zostel Ooty",
-              "band": "budget",
-              "rating": 4.2,
-              "per_night": 2206,
-              "nights": 3,
-              "total": 6618,
-              "currency": "INR",
-              "amenities": [
-                "WiFi",
-                "AC",
-                "Breakfast"
-              ]
-            }
-          ],
-          "recommended": {
-            "name": "Zostel Ooty",
-            "band": "budget",
-            "rating": 4.2,
-            "per_night": 2206,
-            "nights": 3,
-            "total": 6618,
-            "currency": "INR",
-            "amenities": [
-              "WiFi",
-              "AC",
-              "Breakfast"
-            ]
-          }
-        },
-        "budget_summary": {
-          "budget": 18000.0,
-          "estimated_total": 15258.0,
-          "overshoot": 0.0,
-          "within_budget": true,
-          "breakdown": {
-            "transport": 2240.0,
-            "hotel": 6618.0,
-            "food": 2400,
-            "activities": 2000,
-            "local_transport": 800,
-            "misc": 1200
-          },
-          "per_person_per_day": 1600,
-          "suggestions": [
-            "Budget looks comfortable."
-          ],
-          "currency": "INR"
-        },
-        "itinerary": {
-          "days": [
-            {
-              "day": 1,
-              "date": "2026-06-01",
-              "title": "Day 1 in Ooty",
-              "morning": "Visit Ooty Lake",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Botanical Gardens",
-              "meals": [
-                "Varkey",
-                "Avial"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 2,
-              "date": "2026-06-02",
-              "title": "Day 2 in Ooty",
-              "morning": "Visit Botanical Gardens",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Doddabetta Peak",
-              "meals": [
-                "Varkey",
-                "Avial"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 3,
-              "date": "2026-06-03",
-              "title": "Day 3 in Ooty",
-              "morning": "Visit Doddabetta Peak",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Ooty Lake",
-              "meals": [
-                "Varkey",
-                "Avial"
-              ],
-              "notes": "Light layers"
-            },
-            {
-              "day": 4,
-              "date": "2026-06-04",
-              "title": "Day 4 in Ooty",
-              "morning": "Visit Ooty Lake",
-              "afternoon": "Outdoor activity",
-              "evening": "Explore Botanical Gardens",
-              "meals": [
-                "Varkey",
-                "Avial"
-              ],
-              "notes": "Light layers"
-            }
-          ]
-        },
-        "review_status": {
-          "approved": true,
-          "issues": [],
-          "needs_retry": []
-        },
-        "trip_preferences": {
-          "source": "Chennai",
-          "destination": "Ooty",
-          "start_date": "2026-06-01",
-          "end_date": "2026-06-04",
-          "duration_days": 4,
-          "budget": 18000.0,
-          "currency": "INR",
-          "travelers": 1,
-          "travel_type": "solo",
-          "hotel_pref": "budget",
-          "transport_pref": "train",
-          "interests": [
-            "mountains"
-          ],
-          "luxury_level": "standard",
-          "food_pref": []
-        }
-      },
-      "faithfulness": 1.0,
-      "answer_relevancy": 1.0,
-      "context_precision": 0.72,
-      "context_recall": 1.0,
-      "answer_correctness": 1.0
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
     },
     {
       "case_id": "TC015",
       "category": "edge",
       "quality": "bad",
       "user_input": "tell me about something random",
-      "final_reply": "I'm best at planning trips. Tell me where you'd like to go!",
-      "final_stage": "chat",
+      "final_reply": "ok",
+      "final_stage": "done",
       "expected_status": "chat",
       "expected_keywords": [
         "tell"
       ],
-      "matched_keywords": [
-        "tell"
-      ],
-      "pdf_path": null,
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
       "pii_detected": false,
       "pii_warning": null,
-      "latency_s": 0.256,
+      "latency_s": 0.0,
       "error": null,
-      "passed": true,
+      "passed": false,
       "turn_latencies": [
-        0.256
+        0.0
       ],
       "state_snapshot": {},
-      "faithfulness": 1.0,
+      "faithfulness": 0.0,
       "answer_relevancy": 0.8,
       "context_precision": 0.5,
       "context_recall": 0.3,
-      "answer_correctness": 1.0
+      "answer_correctness": 0.2
     }
   ]
 }

@@ -21,6 +21,7 @@ from memory import get_session_memory
 from state import TripState, new_state
 from tools.places_api import suggest_places, DESTINATION_CATALOG
 from tools.guardrails import redact, summarise
+from tracing import traceable, capture_run_id
 
 logger = logging.getLogger("trip_planner")
 
@@ -34,8 +35,10 @@ GREETING = (
 
 
 def _safe(label, fn, state, default=None):
+    """Call an agent (wrapped in a LangSmith span if enabled)."""
     try:
-        return fn(state) or {}
+        traced_fn = traceable(name=f"agent_{label}")(fn)
+        return traced_fn(state) or {}
     except BaseException as e:
         logger.error("agent '%s' failed: %s: %s\n%s",
                      label, e.__class__.__name__, e, traceback.format_exc())
@@ -134,6 +137,7 @@ def _looks_like_new_trip(t):
     return any(k in t.lower() for k in ("plan","trip to","travel to","go to","visit","vacation","holiday","tour"))
 
 
+@traceable(name="agent_pipeline")
 def _run_plan(state):
     s = dict(state)
     s = _merge(s, _safe("pii", pii_guardrail_agent, s))
@@ -163,8 +167,10 @@ class ChatResponse:
     pdf_path: Optional[str] = None
     done: bool = False
     pii_warning: Optional[str] = None
+    run_id: Optional[str] = None
 
 
+@traceable(name="chat_turn")
 def chat_turn(session_id, user_message):
     try:
         return _chat_turn_inner(session_id, user_message)
@@ -182,7 +188,9 @@ def _chat_turn_inner(sid, user_message):
 
     if state.get("conversation_stage") == "greet" and not user_message.strip():
         sm.update_state(sid, state)
-        return ChatResponse(reply=GREETING, state=state, stage="greet")
+        return ChatResponse(reply=GREETING, state=state, stage="greet",
+        run_id=capture_run_id(),
+    )
 
     if state.get("conversation_stage") == "done" or (
         state.get("pdf_path") and _looks_like_new_trip(user_message)):
@@ -208,7 +216,9 @@ def _chat_turn_inner(sid, user_message):
             state["conversation_stage"] = "ask_help"
             state["messages"].append(AIMessage(content=GREETING))
             sm.update_state(sid, state)
-            return ChatResponse(reply=GREETING, state=state, stage="ask_help", pii_warning=pii_warning)
+            return ChatResponse(reply=GREETING, state=state, stage="ask_help", pii_warning=pii_warning,
+        run_id=capture_run_id(),
+    )
 
     if not _has_trip_signal(user_message, state):
         reply = _general_reply(user_message)
@@ -216,7 +226,9 @@ def _chat_turn_inner(sid, user_message):
         if state.get("conversation_stage") in ("greet", "ask_help"):
             state["conversation_stage"] = "ask_help"
         sm.update_state(sid, state)
-        return ChatResponse(reply=reply, state=state, stage="chat", pii_warning=pii_warning)
+        return ChatResponse(reply=reply, state=state, stage="chat", pii_warning=pii_warning,
+        run_id=capture_run_id(),
+    )
 
     if state.get("conversation_stage") in ("greet", "ask_help"):
         state["conversation_stage"] = "collect"
@@ -235,7 +247,9 @@ def _chat_turn_inner(sid, user_message):
         state["conversation_stage"] = "collect"
         state["messages"].append(AIMessage(content=reply))
         sm.update_state(sid, state)
-        return ChatResponse(reply=reply, state=state, stage="collect", pii_warning=pii_warning)
+        return ChatResponse(reply=reply, state=state, stage="collect", pii_warning=pii_warning,
+        run_id=capture_run_id(),
+    )
 
     if not state.get("weather_data"):
         state = _merge(state, _safe("weather", weather_agent, state))
@@ -255,7 +269,9 @@ def _chat_turn_inner(sid, user_message):
         state["conversation_stage"] = "confirm"
         state["messages"].append(AIMessage(content=reply))
         sm.update_state(sid, state)
-        return ChatResponse(reply=reply, state=state, stage="confirm", pii_warning=pii_warning)
+        return ChatResponse(reply=reply, state=state, stage="confirm", pii_warning=pii_warning,
+        run_id=capture_run_id(),
+    )
 
     state["conversation_stage"] = "plan"
     final_state = _run_plan(state)
@@ -281,4 +297,6 @@ def _chat_turn_inner(sid, user_message):
     final_state["conversation_stage"] = "done"
     sm.update_state(sid, final_state)
     return ChatResponse(reply=reply, state=final_state, stage="done",
-                        pdf_path=pdf_path, done=True, pii_warning=pii_warning)
+                        pdf_path=pdf_path, done=True, pii_warning=pii_warning,
+        run_id=capture_run_id(),
+    )

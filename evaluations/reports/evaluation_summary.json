@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-05-25T06:01:47.146410Z",
+  "generated_at": "2026-05-25T05:05:52.976806Z",
   "basic_metrics": {
     "total": 15,
-    "passed": 12,
-    "failed": 3,
+    "passed": 0,
+    "failed": 15,
     "errors": 0,
     "empty_responses": 0,
-    "pii_detections": 2,
-    "pdf_generated": 10,
-    "success_rate": 0.8,
+    "pii_detections": 0,
+    "pdf_generated": 15,
+    "success_rate": 0.0,
     "error_rate": 0.0,
     "empty_rate": 0.0,
-    "completion_rate": 0.6667,
+    "completion_rate": 1.0,
     "latency": {
-      "count": 15,
-      "min_s": 0.001,
-      "max_s": 3.617,
-      "mean_s": 2.127,
-      "median_s": 2.641,
-      "stdev_s": 1.31
+      "count": 0,
+      "min_s": 0.0,
+      "max_s": 0.0,
+      "mean_s": 0.0,
+      "median_s": 0.0,
+      "stdev_s": 0.0
     },
     "by_category": {
       "happy_path": {
         "total": 5,
-        "passed": 5,
-        "failed": 0,
-        "success_rate": 1.0
+        "passed": 0,
+        "failed": 5,
+        "success_rate": 0.0
       },
       "off_topic": {
         "total": 2,
-        "passed": 2,
-        "failed": 0,
-        "success_rate": 1.0
+        "passed": 0,
+        "failed": 2,
+        "success_rate": 0.0
       },
       "pii": {
         "total": 2,
-        "passed": 2,
-        "failed": 0,
-        "success_rate": 1.0
+        "passed": 0,
+        "failed": 2,
+        "success_rate": 0.0
       },
       "budget_fit": {
         "total": 2,
@@ -53,28 +53,31 @@
       },
       "edge": {
         "total": 3,
-        "passed": 3,
-        "failed": 0,
-        "success_rate": 1.0
+        "passed": 0,
+        "failed": 3,
+        "success_rate": 0.0
       }
     },
-    "best_case": {
-      "id": "TC004",
-      "latency_s": 0.001
-    },
-    "worst_case": {
-      "id": "TC014",
-      "latency_s": 3.617
-    },
     "failed_cases": [
+      "TC001",
+      "TC002",
+      "TC003",
+      "TC004",
+      "TC005",
+      "TC006",
+      "TC007",
       "TC008",
       "TC009",
-      "TC010"
+      "TC010",
+      "TC011",
+      "TC012",
+      "TC013",
+      "TC014",
+      "TC015"
     ]
   },
   "deepeval": {
     "skipped": true,
-    "reason": "no usable test cases",
-    "threshold": 0.5
+    "reason": "skipped from UI"
   }
 }

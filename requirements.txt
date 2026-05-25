@@ -27,3 +27,6 @@ pandas>=2.0.0
 matplotlib>=3.7.0
 seaborn>=0.13.0
 plotly>=5.18.0
+
+# LangSmith tracing (optional)
+langsmith>=0.1.0

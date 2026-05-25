@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent
 if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
 
 from chat_flow import chat_turn, GREETING
+from tracing import send_feedback, is_enabled as ls_enabled, get_run_url
 from config import settings
 
 logger = logging.getLogger("trip_planner")
@@ -37,6 +38,15 @@ class ChatOut(BaseModel):
     pdf_url: Optional[str] = None
     done: bool = False
     pii_warning: Optional[str] = None
+    run_id: Optional[str] = None
+    run_url: Optional[str] = None
+
+
+class FeedbackIn(BaseModel):
+    run_id: str
+    key: str = "user_thumbs"
+    score: float
+    comment: Optional[str] = None
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -73,9 +83,11 @@ def chat(payload: ChatIn):
             reply=f"Internal error: {e.__class__.__name__}: {e}",
             stage="error")
     pdf_url = f"/api/pdf/{Path(result.pdf_path).name}" if result.pdf_path else None
+    rid = getattr(result, "run_id", None)
     return ChatOut(session_id=sid, reply=result.reply, stage=result.stage,
                     pdf_url=pdf_url, done=result.done,
-                    pii_warning=getattr(result, "pii_warning", None))
+                    pii_warning=getattr(result, "pii_warning", None),
+                    run_id=rid, run_url=get_run_url(rid) if rid else None)
 
 
 @app.get("/api/pdf/{name}")
@@ -86,6 +98,20 @@ def get_pdf(name: str):
         raise HTTPException(status_code=404, detail="PDF not found")
     return FileResponse(str(path), media_type="application/pdf", filename=safe)
 
+
+
+
+@app.post("/api/chat/feedback")
+def chat_feedback(payload: FeedbackIn):
+    """Forward thumbs up/down to LangSmith."""
+    ok = send_feedback(payload.run_id, payload.key, payload.score, payload.comment or "")
+    return {"ok": ok, "langsmith_enabled": ls_enabled()}
+
+
+@app.get("/api/langsmith/status")
+def langsmith_status():
+    from tracing import get_project_url
+    return {"enabled": ls_enabled(), "project_url": get_project_url()}
 
 # ==================== Evaluation routes ====================
 # Loads /api/evaluations/* endpoints + /evaluations standalone page.

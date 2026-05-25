@@ -20,5 +20,27 @@
       "end_date": "2026-06-10",
       "food_pref": []
     }
+  },
+  {
+    "text": "User test-1 planned a 3-day solo to Mysore from Bangalore, budget 15000.0, interests: heritage",
+    "user_id": "test-1",
+    "prefs": {
+      "source": "Bangalore",
+      "destination": "Mysore",
+      "duration_days": 3,
+      "budget": 15000.0,
+      "currency": "INR",
+      "travelers": 1,
+      "travel_type": "solo",
+      "hotel_pref": "budget",
+      "transport_pref": "flight",
+      "interests": [
+        "heritage"
+      ],
+      "luxury_level": "standard",
+      "start_date": "2026-06-08",
+      "end_date": "2026-06-10",
+      "food_pref": []
+    }
   }
 ]

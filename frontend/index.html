@@ -185,6 +185,22 @@ table.eval-table { width: 100%; border-collapse: collapse; font-size: 12.5px;
                text-align: center; color: var(--muted); border: 1px dashed var(--border); }
 .eval-empty .big { font-size: 36px; margin-bottom: 8px; }
 .eval-empty strong { color: var(--accent-dark); }
+
+.msg-row { display:flex; flex-direction:column; gap:4px; max-width:80%; align-self:flex-start; }
+.thumbs { display:flex; gap:6px; padding-left:4px; }
+.thumb-btn { background:transparent; border:1px solid var(--border); color:var(--muted);
+             padding:3px 9px; border-radius:999px; font-size:11px; cursor:pointer;
+             transition:all 0.15s; }
+.thumb-btn:hover { background:var(--card-soft); color:var(--accent); }
+.thumb-btn.selected.up { background:#ecfdf5; color:var(--ok); border-color:#a7f3d0; }
+.thumb-btn.selected.down { background:#fee2e2; color:var(--err); border-color:#fecaca; }
+.thumb-btn a { color:inherit; text-decoration:none; }
+.ls-badge { background:rgba(255,255,255,0.22); color:white;
+            padding:4px 9px; border-radius:999px; font-size:10px; font-weight:600;
+            display:inline-flex; gap:5px; align-items:center; cursor:pointer; }
+.ls-badge.off { opacity:0.55; }
+.ls-badge a { color:white; text-decoration:none; }
+
 </style>
 </head>
 <body>
@@ -197,6 +213,7 @@ table.eval-table { width: 100%; border-collapse: collapse; font-size: 12.5px;
     </div>
     <div class="hdr-right">
       <span class="badge"><span id="api-dot" class="dot off"></span><span id="api-label">connecting…</span></span>
+      <a id="ls-badge" class="ls-badge off" target="_blank" title="LangSmith tracing">🔭 LangSmith</a>
       <button class="eval-btn" id="open-eval-btn" title="Open evaluation dashboard">
         <span class="icon">📊</span><span>Evaluation</span>
       </button>
@@ -246,9 +263,48 @@ let sessionId = localStorage.getItem('trip_sid') || null;
 function fmt(t){ if(t==null) return ''; return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;')
   .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>')
   .replace(/\n/g,'<br/>'); }
-function addMsg(text, who){
-  const d=document.createElement('div'); d.className='msg '+(who||'bot');
-  d.innerHTML=fmt(text || '(empty)'); log.appendChild(d); log.scrollTop=log.scrollHeight;
+function addMsg(text, who, opts){
+  opts = opts || {};
+  if (who === 'bot' && (opts.runId || opts.runUrl)) {
+    const wrap = document.createElement('div'); wrap.className='msg-row';
+    const d = document.createElement('div'); d.className='msg bot';
+    d.innerHTML = fmt(text || '(empty)');
+    wrap.appendChild(d);
+    const row = document.createElement('div'); row.className='thumbs';
+    const up = document.createElement('button'); up.className='thumb-btn up';
+    up.textContent='👍';
+    const dn = document.createElement('button'); dn.className='thumb-btn down';
+    dn.textContent='👎';
+    up.onclick=()=>sendFeedback(opts.runId, 1, up, dn);
+    dn.onclick=()=>sendFeedback(opts.runId, 0, up, dn);
+    row.appendChild(up); row.appendChild(dn);
+    if (opts.runUrl) {
+      const link = document.createElement('a');
+      link.href = opts.runUrl; link.target='_blank';
+      link.className='thumb-btn'; link.textContent='🔭 view trace';
+      row.appendChild(link);
+    }
+    wrap.appendChild(row);
+    log.appendChild(wrap);
+  } else {
+    const d=document.createElement('div'); d.className='msg '+(who||'bot');
+    d.innerHTML=fmt(text || '(empty)'); log.appendChild(d);
+  }
+  log.scrollTop=log.scrollHeight;
+}
+
+async function sendFeedback(runId, score, upEl, dnEl) {
+  if (!runId) return;
+  try {
+    const r = await fetch('/api/chat/feedback', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({run_id: runId, key:'user_thumbs', score: score})
+    });
+    const d = await r.json();
+    upEl.classList.remove('selected'); dnEl.classList.remove('selected');
+    (score >= 1 ? upEl : dnEl).classList.add('selected');
+    if (!d.ok) console.warn('feedback not delivered (langsmith disabled?)', d);
+  } catch (e) { console.warn('feedback failed', e); }
 }
 function addTyping(){ const t=document.createElement('div'); t.className='msg bot typing';
   t.innerHTML='<span></span><span></span><span></span>'; log.appendChild(t);
@@ -269,7 +325,7 @@ async function sendMessage(text){
     if(!r.ok){ addMsg('⚠ Server error: '+(data?.detail||'HTTP '+r.status),'err'); return; }
     if(data.session_id){ sessionId=data.session_id; localStorage.setItem('trip_sid',sessionId); }
     if(data.pii_warning) addMsg('🔒 '+data.pii_warning,'warn');
-    addMsg(data.reply || '(no reply)','bot');
+    addMsg(data.reply || '(no reply)','bot', {runId: data.run_id, runUrl: data.run_url});
     if(data.pdf_url) addPdfCard(data.pdf_url);
   } catch(e){ typing.remove(); addMsg('⚠ Network error: '+e.message,'err'); }
 }
@@ -289,6 +345,21 @@ async function greet(){
   }catch{ addMsg('Hello! Where would you like to go?','bot'); }
 }
 greet();
+
+async function checkLangSmith() {
+  try {
+    const r = await fetch('/api/langsmith/status').then(r=>r.json());
+    const el = document.getElementById('ls-badge');
+    if (r.enabled) {
+      el.classList.remove('off');
+      if (r.project_url) el.href = r.project_url;
+      el.title = 'LangSmith tracing enabled - click to view project';
+    } else {
+      el.title = 'LangSmith tracing disabled (LANGSMITH_API_KEY not set)';
+    }
+  } catch {}
+}
+checkLangSmith();
 
 // ========================= EVALUATION MODAL =========================
 const evalOverlay = document.getElementById('eval-overlay');

@@ -1,5 +1,5 @@
 {
   "skipped": true,
-  "reason": "no usable test cases",
+  "reason": "deepeval not installed (pip install deepeval)",
   "threshold": 0.5
 }
