@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AI Trip Planner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<style>
+:root {
+  /* Lavender + white palette */
+  --bg-1: #f5f0ff;
+  --bg-2: #efe6ff;
+  --bg-3: #faf5ff;
+  --card: #ffffff;
+  --card-soft: #f8f4ff;
+  --border: #e9d8fd;
+  --text: #2d1b54;
+  --muted: #7c6da5;
+  --accent: #7c3aed;        /* deep lavender */
+  --accent-light: #a78bfa;
+  --accent-dark: #5b21b6;
+  --accent-glow: rgba(124,58,237,0.25);
+  --ok: #16a34a;
+  --warn: #d97706;
+  --err: #dc2626;
+  --user-bubble: #7c3aed;
+  --bot-bubble: #f3eaff;
+  --bot-text: #2d1b54;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+       color: var(--text); min-height: 100vh;
+       display: flex; align-items: center; justify-content: center; padding: 20px; }
+
+.app { width: 100%; max-width: 920px; height: 90vh; background: var(--card);
+       border-radius: 20px; box-shadow: 0 30px 80px rgba(124,58,237,0.18);
+       display: flex; flex-direction: column; overflow: hidden;
+       border: 1px solid var(--border); }
+
+header { padding: 18px 26px; background: linear-gradient(120deg, var(--accent-light) 0%, var(--accent) 100%);
+         color: white; display: flex; align-items: center; justify-content: space-between;
+         box-shadow: 0 4px 16px rgba(124,58,237,0.25); }
+header h1 { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: 0.2px; }
+header .sub { font-size: 12px; opacity: 0.9; margin-top: 2px; }
+.hdr-right { display: flex; gap: 10px; align-items: center; }
+
+/* BIG, OBVIOUS evaluation button */
+.eval-btn {
+  background: #ffffff; color: var(--accent); border: 2px solid #ffffff;
+  padding: 10px 20px; border-radius: 999px; font-weight: 700; font-size: 13px;
+  cursor: pointer; transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(255,255,255,0.4);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.eval-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(255,255,255,0.55); }
+.eval-btn:active { transform: translateY(0); }
+.eval-btn .icon { font-size: 16px; }
+
+.badge { display: inline-flex; gap: 6px; align-items: center;
+         background: rgba(255,255,255,0.22); color: white;
+         padding: 5px 11px; border-radius: 999px; font-size: 11px; font-weight: 500; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: #86efac; }
+.dot.off { background: rgba(255,255,255,0.5); }
+
+#log { flex: 1; padding: 22px; overflow-y: auto;
+       display: flex; flex-direction: column; gap: 13px;
+       background: linear-gradient(180deg, #ffffff 0%, var(--card-soft) 100%); }
+.msg { max-width: 80%; padding: 12px 16px; border-radius: 14px; line-height: 1.5;
+       font-size: 14px; white-space: pre-wrap; word-wrap: break-word;
+       box-shadow: 0 2px 8px rgba(124,58,237,0.08); }
+.msg.user { background: var(--user-bubble); color: white; align-self: flex-end;
+            border-bottom-right-radius: 4px; }
+.msg.bot  { background: var(--bot-bubble); color: var(--bot-text); align-self: flex-start;
+            border-bottom-left-radius: 4px; border: 1px solid var(--border); }
+.msg.err  { background: #fee2e2; color: #991b1b; align-self: flex-start; }
+.msg.warn { background: #fef3c7; color: #92400e; align-self: flex-start; }
+.msg.bot strong { color: var(--accent); }
+.typing { display: inline-flex; gap: 4px; padding: 12px 16px; }
+.typing span { width: 6px; height: 6px; background: var(--accent-light); border-radius: 50%;
+               animation: bounce 1s infinite; }
+.typing span:nth-child(2){animation-delay:.2s} .typing span:nth-child(3){animation-delay:.4s}
+@keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
+.pdf-card { align-self: flex-start;
+            background: linear-gradient(120deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: white; padding: 14px 18px; border-radius: 14px;
+            box-shadow: 0 6px 18px var(--accent-glow); }
+.pdf-card a { color: white; font-weight: 600; text-decoration: none; }
+.pdf-card a:hover { text-decoration: underline; }
+
+footer { padding: 14px 16px; background: var(--card); border-top: 1px solid var(--border);
+         display: flex; gap: 10px; align-items: center; }
+#input { flex: 1; resize: none; padding: 12px 16px;
+         background: var(--card-soft); border: 1.5px solid var(--border); color: var(--text);
+         border-radius: 10px; font-size: 14px; outline: none;
+         min-height: 44px; max-height: 120px; font-family: inherit; transition: border-color 0.2s; }
+#input:focus { border-color: var(--accent); }
+#input::placeholder { color: var(--muted); }
+#send { background: var(--accent); color: white; padding: 11px 22px;
+        border-radius: 10px; border: none; cursor: pointer; font-weight: 600; font-size: 14px;
+        box-shadow: 0 4px 12px var(--accent-glow); }
+#send:hover { background: var(--accent-dark); }
+.hint { font-size: 11px; color: var(--muted); padding: 4px 18px 8px; }
+
+/* ====== Evaluation modal ====== */
+.eval-overlay { display: none; position: fixed; inset: 0;
+                background: rgba(45,27,84,0.55); backdrop-filter: blur(4px);
+                z-index: 100; align-items: flex-start; justify-content: center;
+                padding: 24px; overflow-y: auto; }
+.eval-overlay.open { display: flex; }
+.eval-panel { width: 100%; max-width: 1200px; background: var(--card); border-radius: 18px;
+              padding: 26px 30px; margin: 20px auto;
+              box-shadow: 0 30px 90px rgba(45,27,84,0.4);
+              border: 1px solid var(--border); }
+.eval-head { display: flex; align-items: center; justify-content: space-between;
+             margin-bottom: 20px; gap: 14px; flex-wrap: wrap;
+             padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.eval-head h2 { margin: 0; font-size: 19px; color: var(--accent-dark); }
+.eval-head .desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.eval-tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.eval-tools button { padding: 9px 17px; border-radius: 9px; border: none;
+                      font-weight: 600; font-size: 13px; cursor: pointer; }
+.eval-tools button#eval-run-btn { background: var(--accent); color: white;
+                                    box-shadow: 0 4px 12px var(--accent-glow); }
+.eval-tools button#eval-run-btn:hover { background: var(--accent-dark); }
+.eval-tools button.secondary { background: var(--card-soft); color: var(--accent-dark);
+                                 border: 1px solid var(--border); }
+.eval-tools button.close { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.eval-tools button:disabled { opacity: 0.5; cursor: wait; }
+.eval-tools label { font-size: 13px; color: var(--muted); }
+.eval-status { font-size: 13px; color: var(--muted); padding: 6px 12px;
+               background: var(--card-soft); border-radius: 6px; }
+.eval-status.ok { color: var(--ok); background: #ecfdf5; }
+.eval-status.busy { color: var(--warn); background: #fef3c7; }
+.eval-status.err { color: var(--err); background: #fee2e2; }
+
+.grid { display: grid; gap: 14px; }
+.cards { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.metric-card { background: linear-gradient(135deg, #ffffff 0%, var(--card-soft) 100%);
+                padding: 14px 16px; border-radius: 12px;
+                border: 1px solid var(--border);
+                box-shadow: 0 2px 8px rgba(124,58,237,0.06); }
+.metric-card .k { font-size: 10px; color: var(--muted); text-transform: uppercase;
+                   letter-spacing: 0.5px; font-weight: 600; }
+.metric-card .v { font-size: 24px; font-weight: 700; margin-top: 4px; color: var(--accent-dark); }
+.metric-card .v.ok { color: var(--ok); }
+.metric-card .v.warn { color: var(--warn); }
+.metric-card .v.err { color: var(--err); }
+
+.eval-section { margin-top: 26px; }
+.eval-section h3 { font-size: 14px; margin: 0 0 12px 0; color: var(--accent-dark);
+                    text-transform: uppercase; letter-spacing: 0.5px; }
+.dash-img { background: white; border-radius: 12px; padding: 8px;
+             border: 1px solid var(--border); box-shadow: 0 4px 14px rgba(124,58,237,0.08); }
+.dash-img img { width: 100%; display: block; border-radius: 8px; }
+.charts-row { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.chart-card { background: white; padding: 12px; border-radius: 12px;
+               border: 1px solid var(--border); }
+.chart-card h4 { margin: 0 0 8px 0; font-size: 12px; color: var(--accent); font-weight: 600; }
+.chart-card img { width: 100%; border-radius: 8px; }
+
+table.eval-table { width: 100%; border-collapse: collapse; font-size: 12.5px;
+                    background: white; border-radius: 12px; overflow: hidden;
+                    border: 1px solid var(--border); }
+.eval-table th, .eval-table td { padding: 9px 11px; text-align: left;
+                                   border-bottom: 1px solid var(--border); }
+.eval-table th { background: var(--card-soft); font-size: 10px; text-transform: uppercase;
+                  letter-spacing: 0.5px; color: var(--accent-dark); font-weight: 700; }
+.eval-table tr:last-child td { border-bottom: none; }
+.eval-table tr:hover td { background: var(--card-soft); }
+.pill { padding: 3px 9px; border-radius: 999px; font-size: 10px; font-weight: 700; }
+.pill.good { background: #d1fae5; color: #065f46; }
+.pill.medium { background: #fef3c7; color: #92400e; }
+.pill.bad { background: #fee2e2; color: #991b1b; }
+.pill.pass { background: #d1fae5; color: #065f46; }
+.pill.fail { background: #fee2e2; color: #991b1b; }
+.pill.cat { background: #ede9fe; color: var(--accent-dark); }
+.score { font-family: 'SF Mono', 'Monaco', monospace; font-weight: 700; }
+.score.s0 { color: var(--err); }
+.score.s1 { color: var(--warn); }
+.score.s2 { color: var(--ok); }
+.eval-empty { background: var(--card-soft); padding: 36px; border-radius: 12px;
+               text-align: center; color: var(--muted); border: 1px dashed var(--border); }
+.eval-empty .big { font-size: 36px; margin-bottom: 8px; }
+.eval-empty strong { color: var(--accent-dark); }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header>
+    <div>
+      <h1>✦ AI Trip Planner</h1>
+      <div class="sub">Multi-Agent · PII Guardrail · OpenWeatherMap</div>
+    </div>
+    <div class="hdr-right">
+      <span class="badge"><span id="api-dot" class="dot off"></span><span id="api-label">connecting…</span></span>
+      <button class="eval-btn" id="open-eval-btn" title="Open evaluation dashboard">
+        <span class="icon">📊</span><span>Evaluation</span>
+      </button>
+    </div>
+  </header>
+  <div id="log"></div>
+  <footer>
+    <textarea id="input" placeholder="Plan a 4-day Mysore trip from Bangalore, Rs 15,000, heritage, train"></textarea>
+    <button id="send">Send</button>
+  </footer>
+  <div class="hint">PII (email/phone/Aadhaar/PAN/card) is auto-redacted before processing.</div>
+</div>
+
+<!-- =================== EVALUATION MODAL =================== -->
+<div class="eval-overlay" id="eval-overlay">
+  <div class="eval-panel">
+    <div class="eval-head">
+      <div>
+        <h2>📊 RAGAS-style Evaluation Dashboard</h2>
+        <div class="desc">Faithfulness · Answer Relevancy · Context Precision · Context Recall · Answer Correctness</div>
+      </div>
+      <div class="eval-tools">
+        <button id="eval-run-btn">▶ Run evaluation</button>
+        <button id="eval-refresh-btn" class="secondary">↻ Refresh</button>
+        <label><input type="checkbox" id="eval-skip-de" checked /> Skip DeepEval</label>
+        <span class="eval-status" id="eval-status">idle</span>
+        <button id="eval-close-btn" class="close">✕ Close</button>
+      </div>
+    </div>
+    <div id="eval-content">
+      <div class="eval-empty">
+        <div class="big">📊</div>
+        <div><strong>Click "Run evaluation" to start</strong></div>
+        <div style="margin-top:6px; font-size:12px;">Runs all test cases, computes RAGAS metrics, generates charts.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ========================= CHAT =========================
+const log = document.getElementById('log'), input = document.getElementById('input'),
+      sendBtn = document.getElementById('send'),
+      apiDot = document.getElementById('api-dot'), apiLabel = document.getElementById('api-label');
+let sessionId = localStorage.getItem('trip_sid') || null;
+
+function fmt(t){ if(t==null) return ''; return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+  .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>')
+  .replace(/\n/g,'<br/>'); }
+function addMsg(text, who){
+  const d=document.createElement('div'); d.className='msg '+(who||'bot');
+  d.innerHTML=fmt(text || '(empty)'); log.appendChild(d); log.scrollTop=log.scrollHeight;
+}
+function addTyping(){ const t=document.createElement('div'); t.className='msg bot typing';
+  t.innerHTML='<span></span><span></span><span></span>'; log.appendChild(t);
+  log.scrollTop=log.scrollHeight; return t; }
+function addPdfCard(url){ if(!url) return; const c=document.createElement('div');
+  c.className='pdf-card';
+  c.innerHTML='📄 <a href="'+url+'" target="_blank">Download your Trip PDF</a>';
+  log.appendChild(c); log.scrollTop=log.scrollHeight; }
+
+async function sendMessage(text){
+  const msg=(text||'').trim(); if(!msg) return;
+  addMsg(msg,'user'); input.value=''; const typing=addTyping();
+  try {
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({session_id:sessionId, message:msg})});
+    let data=null; try{data=await r.json();}catch(e){}
+    typing.remove();
+    if(!r.ok){ addMsg('⚠ Server error: '+(data?.detail||'HTTP '+r.status),'err'); return; }
+    if(data.session_id){ sessionId=data.session_id; localStorage.setItem('trip_sid',sessionId); }
+    if(data.pii_warning) addMsg('🔒 '+data.pii_warning,'warn');
+    addMsg(data.reply || '(no reply)','bot');
+    if(data.pdf_url) addPdfCard(data.pdf_url);
+  } catch(e){ typing.remove(); addMsg('⚠ Network error: '+e.message,'err'); }
+}
+sendBtn.onclick=()=>sendMessage(input.value);
+input.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage(input.value);}
+});
+
+async function greet(){
+  try{ const h=await fetch('/api/health').then(r=>r.json());
+       apiDot.classList.toggle('off',!h.ok);
+       apiLabel.textContent=h.openai?'OpenAI ready':'mock mode';
+       if(h.weather) apiLabel.textContent+=' · weather live';
+  }catch{}
+  try{ const g=await fetch('/api/greeting').then(r=>r.json());
+       addMsg(g.greeting||'Hello!','bot');
+  }catch{ addMsg('Hello! Where would you like to go?','bot'); }
+}
+greet();
+
+// ========================= EVALUATION MODAL =========================
+const evalOverlay = document.getElementById('eval-overlay');
+const evalContent = document.getElementById('eval-content');
+const evalStatus = document.getElementById('eval-status');
+const evalRunBtn = document.getElementById('eval-run-btn');
+const evalRefreshBtn = document.getElementById('eval-refresh-btn');
+const evalSkipDE = document.getElementById('eval-skip-de');
+const openEvalBtn = document.getElementById('open-eval-btn');
+const closeEvalBtn = document.getElementById('eval-close-btn');
+
+openEvalBtn.onclick = () => { evalOverlay.classList.add('open'); loadEvalSummary(); };
+closeEvalBtn.onclick = () => evalOverlay.classList.remove('open');
+evalOverlay.addEventListener('click', e => { if (e.target === evalOverlay) evalOverlay.classList.remove('open'); });
+
+function setEvalStatus(t, cls) { evalStatus.textContent = t; evalStatus.className = 'eval-status '+(cls||''); }
+function pct(v) { return ((v||0)*100).toFixed(1)+'%'; }
+function num(v) { return (v||0).toString(); }
+function scoreClass(v) { return v >= 0.7 ? 's2' : (v >= 0.4 ? 's1' : 's0'); }
+
+function renderEvalEmpty(msg) {
+  evalContent.innerHTML = `<div class="eval-empty"><div class="big">📊</div>
+    <div><strong>${msg}</strong></div>
+    <div style="margin-top:6px; font-size:12px;">Click <em>Run evaluation</em> above.</div></div>`;
+}
+
+function renderEval(data) {
+  const s = (data && data.basic_metrics) || {};
+  const ragas = (data && data.ragas) || null;
+  const charts = (data && data.charts) || [];
+  if (!s.total) { renderEvalEmpty('No evaluation results yet'); return; }
+  const lat = s.latency || {};
+  const successCls = s.success_rate >= 0.8 ? 'ok' : (s.success_rate >= 0.5 ? 'warn' : 'err');
+  const ts = Date.now();
+
+  let html = `<div class="eval-section"><h3>Basic Metrics</h3><div class="grid cards">
+    <div class="metric-card"><div class="k">Cases</div><div class="v">${num(s.total)}</div></div>
+    <div class="metric-card"><div class="k">Passed</div><div class="v ok">${num(s.passed)}</div></div>
+    <div class="metric-card"><div class="k">Failed</div><div class="v ${s.failed?'err':''}">${num(s.failed)}</div></div>
+    <div class="metric-card"><div class="k">Success</div><div class="v ${successCls}">${pct(s.success_rate)}</div></div>
+    <div class="metric-card"><div class="k">PDF generated</div><div class="v">${num(s.pdf_generated)}</div></div>
+    <div class="metric-card"><div class="k">PII detections</div><div class="v ${s.pii_detections?'warn':''}">${num(s.pii_detections)}</div></div>
+    <div class="metric-card"><div class="k">Mean latency</div><div class="v">${(lat.mean_s||0).toFixed(2)}s</div></div>
+    <div class="metric-card"><div class="k">Errors</div><div class="v ${s.errors?'err':''}">${num(s.errors)}</div></div>
+  </div></div>`;
+
+  if (ragas && !ragas.skipped) {
+    const means = ragas.overall_means || {};
+    const cols = ragas.metric_cols || Object.keys(means);
+    html += `<div class="eval-section"><h3>RAGAS-style Overall Mean Scores</h3><div class="grid cards">`;
+    for (const c of cols) {
+      const v = means[c] || 0;
+      const cls = v >= 0.7 ? 'ok' : (v >= 0.4 ? 'warn' : 'err');
+      html += `<div class="metric-card"><div class="k">${c.replace(/_/g,' ')}</div>
+                <div class="v ${cls}">${v.toFixed(3)}</div></div>`;
+    }
+    html += '</div></div>';
+
+    if (charts.includes('ragas_dashboard.png')) {
+      html += `<div class="eval-section"><h3>RAGAS Dashboard (Overall · Per-Case · Quality Tiers)</h3>
+        <div class="dash-img"><img src="/api/evaluations/chart/ragas_dashboard.png?t=${ts}"
+                                    alt="RAGAS dashboard"/></div></div>`;
+    }
+
+    const rows = ragas.per_case || [];
+    if (rows.length) {
+      html += '<div class="eval-section"><h3>Per-Case RAGAS Scores</h3><table class="eval-table"><thead><tr>';
+      html += '<th>Case</th><th>Quality</th><th>Question</th>';
+      for (const c of cols) html += `<th>${c.replace(/_/g,' ')}</th>`;
+      html += '</tr></thead><tbody>';
+      for (const r of rows) {
+        html += `<tr><td><strong>${r.case_id}</strong></td>
+                 <td><span class="pill ${r.quality}">${r.quality}</span></td>
+                 <td style="color:var(--muted); font-size:11px;">${r.question_short||''}</td>`;
+        for (const c of cols) {
+          const v = r[c] || 0;
+          html += `<td class="score ${scoreClass(v)}">${v.toFixed(2)}</td>`;
+        }
+        html += '</tr>';
+      }
+      html += '</tbody></table></div>';
+    }
+
+    const tierMeans = ragas.tier_means || {};
+    if (Object.keys(tierMeans).length) {
+      html += '<div class="eval-section"><h3>Quality Tier Means</h3><table class="eval-table"><thead><tr><th>Tier</th>';
+      for (const c of cols) html += `<th>${c.replace(/_/g,' ')}</th>`;
+      html += '</tr></thead><tbody>';
+      for (const tier of ['good','medium','bad']) {
+        if (!tierMeans[tier]) continue;
+        html += `<tr><td><span class="pill ${tier}">${tier}</span></td>`;
+        for (const c of cols) {
+          const v = tierMeans[tier][c] || 0;
+          html += `<td class="score ${scoreClass(v)}">${v.toFixed(2)}</td>`;
+        }
+        html += '</tr>';
+      }
+      html += '</tbody></table></div>';
+    }
+  } else if (ragas && ragas.skipped) {
+    html += `<div class="eval-section"><h3>RAGAS</h3>
+             <div class="eval-empty" style="padding:18px;">Skipped — ${ragas.reason||'n/a'}</div></div>`;
+  }
+
+  const basicLabels = {
+    'pass_fail_pie.png': 'Pass / Fail',
+    'category_bar.png': 'By category',
+    'latency_line.png': 'Latency',
+    'latency_histogram.png': 'Latency distribution',
+    'guardrail_violations.png': 'PII guardrail',
+  };
+  let cgrid = '<div class="eval-section"><h3>Basic Charts</h3><div class="grid charts-row">';
+  let any = false;
+  for (const [name, title] of Object.entries(basicLabels)) {
+    if (charts.includes(name)) {
+      any = true;
+      cgrid += `<div class="chart-card"><h4>${title}</h4>
+                <img src="/api/evaluations/chart/${name}?t=${ts}" alt="${title}"/></div>`;
+    }
+  }
+  cgrid += '</div></div>';
+  if (any) html += cgrid;
+
+  evalContent.innerHTML = html;
+}
+
+async function loadEvalSummary() {
+  try {
+    const r = await fetch('/api/evaluations/summary');
+    if (r.status === 404) { renderEvalEmpty('No evaluation has been run yet'); setEvalStatus('idle'); return; }
+    if (!r.ok) { renderEvalEmpty('Could not load — server returned '+r.status); return; }
+    const d = await r.json();
+    renderEval(d);
+    setEvalStatus('loaded', 'ok');
+  } catch(e) { setEvalStatus('error: '+e.message, 'err'); renderEvalEmpty('Could not load'); }
+}
+
+async function runEvaluation() {
+  evalRunBtn.disabled = true; evalRefreshBtn.disabled = true;
+  setEvalStatus('running… 30-60 seconds', 'busy');
+  try {
+    const r = await fetch('/api/evaluations/run', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({skip_deepeval: evalSkipDE.checked}),
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || 'failed');
+    const passed = d.summary?.basic_metrics?.passed || 0;
+    const total = d.summary?.basic_metrics?.total || 0;
+    setEvalStatus(`done — ${passed}/${total} passed`, 'ok');
+    renderEval(d.summary);
+  } catch(e) { setEvalStatus('failed: '+e.message, 'err'); }
+  finally { evalRunBtn.disabled = false; evalRefreshBtn.disabled = false; }
+}
+
+evalRunBtn.onclick = runEvaluation;
+evalRefreshBtn.onclick = loadEvalSummary;
+</script>
+</body>
+</html>

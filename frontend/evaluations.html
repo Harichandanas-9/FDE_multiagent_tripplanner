@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Trip Planner — RAGAS-style Evaluation Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+:root { --bg:#0f172a;--card:#1e293b;--muted:#64748b;--text:#f1f5f9;
+        --accent:#38bdf8;--accent2:#fbbf24;--ok:#22c55e;--warn:#f59e0b;--err:#ef4444; }
+* { box-sizing: border-box; }
+body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%); color:var(--text); min-height:100vh; }
+header { padding:16px 28px; background:linear-gradient(90deg,#0ea5e9,#6366f1);
+         display:flex; align-items:center; justify-content:space-between;
+         box-shadow:0 4px 20px rgba(0,0,0,0.3); }
+header h1 { margin:0; font-size:20px; }
+header .sub { font-size:12px; opacity:0.85; }
+nav a { color:white; text-decoration:none; padding:8px 14px; margin-left:8px;
+        border-radius:8px; background:rgba(255,255,255,0.15); font-size:13px; font-weight:600; }
+nav a.active { background:rgba(255,255,255,0.35); }
+nav a:hover { background:rgba(255,255,255,0.25); }
+main { padding:24px 28px; max-width:1280px; margin:0 auto; }
+.toolbar { display:flex; gap:12px; align-items:center; margin-bottom:24px; flex-wrap:wrap; }
+.toolbar button { background:var(--accent); color:#0f172a; border:none; padding:10px 18px;
+                  border-radius:10px; font-weight:600; cursor:pointer; font-size:14px; }
+.toolbar button:disabled { opacity:0.5; cursor:wait; }
+.toolbar button.secondary { background:#334155; color:white; }
+.toolbar label { font-size:13px; color:var(--muted); }
+.status { margin-left:auto; font-size:13px; color:var(--muted); }
+.status.ok { color:var(--ok); } .status.busy { color:var(--accent2); } .status.err { color:var(--err); }
+.grid { display:grid; gap:18px; }
+.cards { grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+.card { background:var(--card); padding:16px 18px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); }
+.card .k { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; }
+.card .v { font-size:24px; font-weight:700; margin-top:4px; }
+.card .v.ok{color:var(--ok);} .card .v.warn{color:var(--warn);} .card .v.err{color:var(--err);}
+section { margin-top:32px; }
+section h2 { font-size:16px; margin:0 0 14px 0; color:var(--accent2); }
+section h2 .sub { font-size:12px; color:var(--muted); font-weight:normal; margin-left:8px; }
+.ragas-dash { background:var(--card); border-radius:12px; padding:14px; }
+.ragas-dash img { width:100%; border-radius:8px; background:white; }
+.charts { grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); }
+.chart { background:var(--card); padding:14px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); }
+.chart h3 { margin:0 0 10px 0; font-size:14px; color:var(--accent); }
+.chart img { width:100%; border-radius:8px; background:white; }
+table { width:100%; border-collapse:collapse; font-size:13px; background:var(--card);
+        border-radius:12px; overflow:hidden; }
+th, td { padding:9px 12px; text-align:left; border-bottom:1px solid #334155; }
+th { background:#0b1224; font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted); }
+.pill { padding:3px 9px; border-radius:999px; font-size:11px; font-weight:600; }
+.pill.pass { background:rgba(34,197,94,0.18); color:var(--ok); }
+.pill.fail { background:rgba(239,68,68,0.18); color:var(--err); }
+.pill.cat { background:rgba(56,189,248,0.15); color:var(--accent); }
+.pill.pii { background:rgba(245,158,11,0.18); color:var(--warn); }
+.pill.good { background:rgba(46,204,113,0.2); color:#2ecc71; }
+.pill.medium { background:rgba(243,156,18,0.2); color:#f39c12; }
+.pill.bad { background:rgba(231,76,60,0.2); color:#e74c3c; }
+.score { font-family:'SF Mono','Monaco',monospace; font-weight:600; }
+.score.s0 { color:#e74c3c; } .score.s1 { color:#f39c12; } .score.s2 { color:#2ecc71; }
+.empty { background:var(--card); padding:40px; border-radius:12px; text-align:center; color:var(--muted); }
+.empty .big { font-size:36px; }
+.report-md { background:var(--card); padding:18px 22px; border-radius:12px;
+             line-height:1.6; font-size:13.5px; white-space:pre-wrap; max-height:480px; overflow-y:auto; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Trip Planner — RAGAS-style Evaluation Dashboard</h1>
+    <div class="sub">Faithfulness · Answer Relevancy · Context Precision · Context Recall · Answer Correctness</div>
+  </div>
+  <nav>
+    <a href="/">Chat</a>
+    <a class="active" href="/evaluations">Evaluations</a>
+    <a href="/docs">API docs</a>
+  </nav>
+</header>
+
+<main>
+  <div class="toolbar">
+    <button id="run-btn">Run evaluation</button>
+    <button id="refresh-btn" class="secondary">Refresh</button>
+    <label><input type="checkbox" id="skip-de" checked /> Skip DeepEval (faster)</label>
+    <div class="status" id="status">idle</div>
+  </div>
+  <div id="content"></div>
+</main>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const content = $("#content"), statusEl = $("#status");
+const runBtn = $("#run-btn"), refreshBtn = $("#refresh-btn"), skipDE = $("#skip-de");
+
+function setStatus(t, cls) { statusEl.textContent = t; statusEl.className = "status " + (cls||""); }
+function pct(v) { return ((v||0)*100).toFixed(1) + "%"; }
+function num(v) { return (v||0).toString(); }
+function scoreClass(v) { return v >= 0.7 ? "s2" : (v >= 0.4 ? "s1" : "s0"); }
+
+function renderEmpty(msg) {
+  content.innerHTML = `<div class="empty"><div class="big">📊</div><div><strong>${msg}</strong></div>
+    <div style="margin-top:8px;">Click <em>Run evaluation</em> to start.</div></div>`;
+}
+
+function ragasSection(ragas, charts) {
+  if (!ragas || ragas.skipped) {
+    return `<section><h2>RAGAS-style Evaluation</h2>
+      <div class="empty" style="padding:20px;">RAGAS metrics not yet computed.</div></section>`;
+  }
+  const means = ragas.overall_means || {};
+  const cols = ragas.metric_cols || Object.keys(means);
+  const rows = ragas.per_case || [];
+  const tierMeans = ragas.tier_means || {};
+  const ts = Date.now();
+
+  // Score cards for the 5 metrics
+  let scoreCards = '<section><h2>RAGAS-style Overall Mean Scores</h2><div class="grid cards">';
+  for (const c of cols) {
+    const v = means[c] || 0;
+    const cls = v >= 0.7 ? "ok" : (v >= 0.4 ? "warn" : "err");
+    scoreCards += `<div class="card"><div class="k">${c.replace(/_/g," ")}</div>
+                    <div class="v ${cls}">${v.toFixed(3)}</div></div>`;
+  }
+  scoreCards += '</div></section>';
+
+  // Combined dashboard image (if present)
+  let dashImg = '';
+  if (charts.includes("ragas_dashboard.png")) {
+    dashImg = `<section><h2>RAGAS Evaluation Dashboard <span class="sub">— Overall · Per-Case · Quality Tiers</span></h2>
+      <div class="ragas-dash"><img src="/api/evaluations/chart/ragas_dashboard.png?t=${ts}"
+                                    alt="RAGAS dashboard"/></div></section>`;
+  }
+
+  // Individual charts
+  let chartGrid = '<section><h2>RAGAS Charts (individual)</h2><div class="grid charts">';
+  const ragasChartLabels = {
+    "ragas_overall_bar.png":   "Overall Metric Scores",
+    "ragas_heatmap.png":       "Per-Case Heatmap",
+    "ragas_quality_tier.png":  "Quality Tier Comparison",
+  };
+  for (const [name, title] of Object.entries(ragasChartLabels)) {
+    if (charts.includes(name)) {
+      chartGrid += `<div class="chart"><h3>${title}</h3>
+                      <img src="/api/evaluations/chart/${name}?t=${ts}" alt="${title}"/></div>`;
+    }
+  }
+  chartGrid += '</div></section>';
+
+  // Per-case score table
+  let tbl = '<section><h2>Per-Case RAGAS Scores</h2><table><thead><tr>';
+  tbl += '<th>Case</th><th>Quality</th><th>Question</th>';
+  for (const c of cols) tbl += `<th>${c.replace(/_/g,' ')}</th>`;
+  tbl += '</tr></thead><tbody>';
+  for (const r of rows) {
+    tbl += `<tr><td><strong>${r.case_id}</strong></td>
+            <td><span class="pill ${r.quality}">${r.quality}</span></td>
+            <td style="color:#94a3b8; font-size:12px;">${r.question_short||""}</td>`;
+    for (const c of cols) {
+      const v = r[c] || 0;
+      tbl += `<td class="score ${scoreClass(v)}">${v.toFixed(2)}</td>`;
+    }
+    tbl += '</tr>';
+  }
+  tbl += '</tbody></table></section>';
+
+  // Tier means table
+  let tierTbl = '';
+  if (Object.keys(tierMeans).length) {
+    tierTbl = '<section><h2>RAGAS — Quality Tier Means</h2><table><thead><tr><th>Tier</th>';
+    for (const c of cols) tierTbl += `<th>${c.replace(/_/g,' ')}</th>`;
+    tierTbl += '</tr></thead><tbody>';
+    for (const tier of ['good','medium','bad']) {
+      if (!tierMeans[tier]) continue;
+      tierTbl += `<tr><td><span class="pill ${tier}">${tier}</span></td>`;
+      for (const c of cols) {
+        const v = tierMeans[tier][c] || 0;
+        tierTbl += `<td class="score ${scoreClass(v)}">${v.toFixed(2)}</td>`;
+      }
+      tierTbl += '</tr>';
+    }
+    tierTbl += '</tbody></table></section>';
+  }
+
+  return scoreCards + dashImg + chartGrid + tierTbl + tbl;
+}
+
+function renderSummary(data) {
+  const s = (data && data.basic_metrics) || {};
+  const ragas = (data && data.ragas) || null;
+  const charts = (data && data.charts) || [];
+  if (!s.total) { renderEmpty("No evaluation results yet"); return; }
+  const lat = s.latency || {};
+  const successCls = s.success_rate >= 0.8 ? "ok" : (s.success_rate >= 0.5 ? "warn" : "err");
+
+  // Basic metric cards
+  let html = `<section><h2>Basic Metrics</h2><div class="grid cards">
+    <div class="card"><div class="k">Total cases</div><div class="v">${num(s.total)}</div></div>
+    <div class="card"><div class="k">Passed</div><div class="v ok">${num(s.passed)}</div></div>
+    <div class="card"><div class="k">Failed</div><div class="v ${s.failed?'err':''}">${num(s.failed)}</div></div>
+    <div class="card"><div class="k">Success rate</div><div class="v ${successCls}">${pct(s.success_rate)}</div></div>
+    <div class="card"><div class="k">PDF generated</div><div class="v">${num(s.pdf_generated)}</div></div>
+    <div class="card"><div class="k">PII detections</div><div class="v ${s.pii_detections?'warn':''}">${num(s.pii_detections)}</div></div>
+    <div class="card"><div class="k">Mean latency</div><div class="v">${(lat.mean_s||0).toFixed(2)}s</div></div>
+    <div class="card"><div class="k">Errors</div><div class="v ${s.errors?'err':''}">${num(s.errors)}</div></div>
+  </div></section>`;
+
+  // RAGAS section (this is the key new bit)
+  html += ragasSection(ragas, charts);
+
+  // Original basic charts in a small grid below
+  const basicLabels = {
+    "pass_fail_pie.png": "Pass / Fail",
+    "category_bar.png": "By category",
+    "latency_line.png": "Latency per case",
+    "latency_histogram.png": "Latency distribution",
+    "guardrail_violations.png": "PII guardrail",
+  };
+  let basicCharts = '<section><h2>Basic Visualizations</h2><div class="grid charts">';
+  let hasAny = false;
+  for (const [name, title] of Object.entries(basicLabels)) {
+    if (charts.includes(name)) {
+      hasAny = true;
+      const ts = Date.now();
+      basicCharts += `<div class="chart"><h3>${title}</h3>
+                        <img src="/api/evaluations/chart/${name}?t=${ts}" alt="${title}"/></div>`;
+    }
+  }
+  basicCharts += '</div></section>';
+  if (hasAny) html += basicCharts;
+
+  content.innerHTML = html;
+}
+
+async function loadSummary() {
+  try {
+    const r = await fetch("/api/evaluations/summary");
+    if (r.status === 404) { renderEmpty("No evaluation has been run yet"); setStatus("idle"); return; }
+    const d = await r.json();
+    renderSummary(d);
+    setStatus("loaded", "ok");
+  } catch (e) { setStatus("error: " + e.message, "err"); renderEmpty("Could not load"); }
+}
+
+async function runEval() {
+  runBtn.disabled = true; refreshBtn.disabled = true;
+  setStatus("running… 30-60 seconds", "busy");
+  try {
+    const r = await fetch("/api/evaluations/run", {
+      method: "POST", headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({ skip_deepeval: skipDE.checked }),
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || "failed");
+    setStatus(`done — ${d.summary?.basic_metrics?.passed||0}/${d.summary?.basic_metrics?.total||0} passed`, "ok");
+    renderSummary(d.summary);
+  } catch (e) { setStatus("failed: " + e.message, "err"); }
+  finally { runBtn.disabled = false; refreshBtn.disabled = false; }
+}
+
+runBtn.onclick = runEval;
+refreshBtn.onclick = loadSummary;
+loadSummary();
+</script>
+</body>
+</html>

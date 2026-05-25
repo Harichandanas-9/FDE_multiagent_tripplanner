@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-05-25T05:05:52.976806Z",
+  "basic_metrics": {
+    "total": 15,
+    "passed": 0,
+    "failed": 15,
+    "errors": 0,
+    "empty_responses": 0,
+    "pii_detections": 0,
+    "pdf_generated": 15,
+    "success_rate": 0.0,
+    "error_rate": 0.0,
+    "empty_rate": 0.0,
+    "completion_rate": 1.0,
+    "latency": {
+      "count": 0,
+      "min_s": 0.0,
+      "max_s": 0.0,
+      "mean_s": 0.0,
+      "median_s": 0.0,
+      "stdev_s": 0.0
+    },
+    "by_category": {
+      "happy_path": {
+        "total": 5,
+        "passed": 0,
+        "failed": 5,
+        "success_rate": 0.0
+      },
+      "off_topic": {
+        "total": 2,
+        "passed": 0,
+        "failed": 2,
+        "success_rate": 0.0
+      },
+      "pii": {
+        "total": 2,
+        "passed": 0,
+        "failed": 2,
+        "success_rate": 0.0
+      },
+      "budget_fit": {
+        "total": 2,
+        "passed": 0,
+        "failed": 2,
+        "success_rate": 0.0
+      },
+      "weather_conflict": {
+        "total": 1,
+        "passed": 0,
+        "failed": 1,
+        "success_rate": 0.0
+      },
+      "edge": {
+        "total": 3,
+        "passed": 0,
+        "failed": 3,
+        "success_rate": 0.0
+      }
+    },
+    "failed_cases": [
+      "TC001",
+      "TC002",
+      "TC003",
+      "TC004",
+      "TC005",
+      "TC006",
+      "TC007",
+      "TC008",
+      "TC009",
+      "TC010",
+      "TC011",
+      "TC012",
+      "TC013",
+      "TC014",
+      "TC015"
+    ]
+  },
+  "deepeval": {
+    "skipped": true,
+    "reason": "skipped from UI"
+  }
+}

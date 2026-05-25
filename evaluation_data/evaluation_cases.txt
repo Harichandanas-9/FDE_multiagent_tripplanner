@@ -1,0 +1,65 @@
+# Trip Planner Evaluation Cases (RAGAS-style)
+#
+# Format:
+#   ID | category | expected_status | expected_keywords | quality
+#   user turn 1
+#   user turn 2 ...
+#
+# Quality tiers: good / medium / bad (mirrors RAGAS dashboard tiers)
+# Categories: happy_path / off_topic / pii / budget_fit / weather_conflict / edge
+
+TC001 | happy_path | done | mysore,thank you,happy journey | good
+plan a 4-day Mysore trip from Bangalore, budget Rs 15000, heritage and shopping, train
+plan it
+
+TC002 | happy_path | done | goa,thank you,happy journey | good
+Plan a 5-day Goa trip from Bangalore for a couple, budget Rs 30000, beach, nightlife, seafood, flight preferred
+plan it
+
+TC003 | happy_path | done | jaipur,thank you,happy journey | good
+Plan a 3-day Jaipur trip from Delhi, budget rs 15000, heritage and shopping
+plan it
+
+TC004 | off_topic | chat | travel | medium
+what is travel
+
+TC005 | off_topic | chat | trip planner | medium
+who are you
+
+TC006 | pii | done | redacted,thank you | good
+Plan a Goa trip from Mumbai for 3 days, Rs 20000, beach, contact me at hari@example.com or +91-9876543210
+plan it
+
+TC007 | pii | done | redacted,thank you | good
+Plan a 3-day Mysore trip from Bangalore, Rs 15000, train, heritage. PAN ABCDE1234F and Aadhaar 1234 5678 9012
+plan it
+
+TC008 | budget_fit | done | within budget | medium
+Plan a 4-day Goa trip from Bangalore for a couple, budget Rs 15000, luxury beach resort, nightlife, flight preferred
+plan it
+
+TC009 | budget_fit | done | adjusted | medium
+Plan a 5-day Manali trip from Delhi, Rs 10000, luxury hotel, adventure, flight
+plan it
+
+TC010 | weather_conflict | done | indoor | medium
+Plan a 3-day Mysore trip from Bangalore, Rs 15000, heritage
+plan it
+
+TC011 | edge | collect | still need | bad
+plan a trip
+
+TC012 | happy_path | done | kerala,thank you | good
+Plan a 4-day Kerala trip from Chennai for a family of 4, Rs 35000, backwaters and beaches, train preferred
+plan it
+
+TC013 | happy_path | done | coorg,thank you | good
+plan a trip to coorg for 3 days from bangalore, Rs 12000, nature, train
+plan it
+
+TC014 | edge | done | ooty,thank you | medium
+plan a trip to ooty for 4 days in next week from chennai, Rs 18000, family, mountains, train
+plan it
+
+TC015 | edge | chat | tell | bad
+tell me about something random

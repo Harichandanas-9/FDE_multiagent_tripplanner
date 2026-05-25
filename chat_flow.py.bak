@@ -1,0 +1,275 @@
+"""Conversational flow controller.
+
+Implements the user-specified script on top of the LangGraph workflow:
+
+    greet  →  ask how can I help
+           →  collect basic info (destination, dates, budget, etc.)
+           →  CHECK WEATHER FIRST
+           →  suggest places (catalog / API)
+           →  run remaining agents
+           →  build PDF
+           →  say "thank you, happy journey"
+"""
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
+
+from langchain_core.messages import AIMessage, HumanMessage
+
+from agents.user_input_agent import user_input_agent
+from agents.weather_agent import weather_agent
+from agents.places_agent import places_agent
+from graph import run_workflow
+from memory import get_session_memory
+from state import TripState, new_state
+from tools.places_api import suggest_places, DESTINATION_CATALOG
+
+
+GREETING = (
+    "Hello! 👋 I'm your AI Trip Planner. How can I help you today?\n\n"
+    "Tell me where you'd like to go and I'll plan it for you. "
+    "For example: *Plan a 4-day Mysore trip from Bangalore, budget ₹15,000, "
+    "heritage + temples, train preferred.*"
+)
+
+
+def _last_user(state: TripState) -> str:
+    for m in reversed(state.get("messages", [])):
+        if isinstance(m, HumanMessage):
+            return m.content
+        if isinstance(m, dict) and m.get("role") in ("user", "human"):
+            return m.get("content", "")
+    return ""
+
+
+def _has_basic_inputs(state: TripState) -> List[str]:
+    prefs = state.get("trip_preferences", {}) or {}
+    missing = []
+    if not prefs.get("destination"): missing.append("destination")
+    if not prefs.get("source"): missing.append("source city")
+    if not prefs.get("duration_days") and not (prefs.get("start_date") and prefs.get("end_date")):
+        missing.append("duration or travel dates")
+    if not prefs.get("budget"): missing.append("budget (approx.)")
+    return missing
+
+
+def _format_weather(weather: Dict[str, Any]) -> str:
+    days = weather.get("forecast", [])
+    if not days:
+        return "I couldn't fetch weather data right now."
+    src = weather.get("source", "mock")
+    header = f"🌤  *Weather forecast for {weather.get('city', 'destination')}*"
+    if src == "openweathermap":
+        header += " (live OpenWeatherMap)"
+    lines = [
+        f"  • {d['date']} — {d['summary']}, {d['temp_min_c']}-{d['temp_max_c']}°C, "
+        f"rain {d.get('rain_mm', 0)}mm"
+        for d in days
+    ]
+    verdict = (weather.get("assessment") or {}).get("verdict", "good")
+    tone = {
+        "good": "Looks great for travel! ✅",
+        "rainy": "Expect rain — I'll bias the itinerary to indoor activities. ☔",
+        "very_hot": "It'll be hot — pack light cottons and stay hydrated. 🌞",
+    }.get(verdict, "")
+    return "\n".join([header, *lines, "", tone])
+
+
+def _format_suggestions(suggestions: List[Dict[str, Any]]) -> str:
+    if not suggestions:
+        return ""
+    lines = ["🌍 *Top places matching your interests:*"]
+    for i, s in enumerate(suggestions[:5], 1):
+        lines.append(
+            f"  {i}. **{s['city']}** — {s['tagline']}\n"
+            f"     Best season: {s['season']}  |  Highlights: {', '.join(s['highlights'])}"
+        )
+    return "\n".join(lines)
+
+
+def _looks_like_place_question(text: str) -> bool:
+    t = text.lower()
+    keywords = ["suggest", "recommend", "where should", "which place",
+                "good place", "places to visit", "any idea"]
+    return any(k in t for k in keywords)
+
+
+@dataclass
+class ChatResponse:
+    reply: str
+    state: TripState
+    stage: str
+    pdf_path: Optional[str] = None
+    done: bool = False
+
+
+def _looks_like_new_trip(text: str) -> bool:
+    t = text.lower()
+    triggers = ["plan", "trip to", "travel to", "go to", "visit", "vacation",
+                "holiday", "tour"]
+    return any(k in t for k in triggers)
+
+
+def chat_turn(session_id: str, user_message: str) -> ChatResponse:
+    """Process one turn of the chat. Stateful — uses session memory."""
+    sm = get_session_memory()
+    sess = sm.get(session_id)
+    state: TripState = sess.get("state") or new_state(user_id=session_id)
+
+    # ---------- Greeting (first turn or explicit "hi") ----------
+    if state.get("conversation_stage") == "greet" and not user_message.strip():
+        sm.update_state(session_id, state)
+        return ChatResponse(reply=GREETING, state=state, stage="greet")
+
+    # If the previous trip is already done, OR the user clearly starts a new
+    # trip while one is finalised, reset the working state but keep the user_id.
+    if state.get("conversation_stage") == "done" or (
+        state.get("pdf_path") and _looks_like_new_trip(user_message)
+    ):
+        user_id = state.get("user_profile", {}).get("user_id", session_id)
+        state = new_state(user_id=user_id)
+        state["conversation_stage"] = "collect"
+
+    state["messages"] = list(state.get("messages", [])) + [HumanMessage(content=user_message)]
+    sm.append_history(session_id, "user", user_message)
+
+    # If the very first user input is just a greeting, echo back and prompt
+    if state.get("conversation_stage") == "greet":
+        if re.fullmatch(r"\s*(hi|hello|hey|namaste|good (morning|evening|afternoon))[\.!]?\s*",
+                        user_message, re.I):
+            state["conversation_stage"] = "ask_help"
+            reply = GREETING
+            state["messages"].append(AIMessage(content=reply))
+            sm.update_state(session_id, state)
+            sm.append_history(session_id, "assistant", reply)
+            return ChatResponse(reply=reply, state=state, stage="ask_help")
+        state["conversation_stage"] = "collect"
+
+    # ---------- Place suggestion path (user asks "suggest a place") ----------
+    if _looks_like_place_question(user_message) and not state.get("trip_preferences", {}).get("destination"):
+        # Try to pull interests from the message
+        parsed = user_input_agent(state) or {}
+        prefs = parsed.get("trip_preferences", state.get("trip_preferences", {}))
+        state["trip_preferences"] = prefs
+        suggestions = suggest_places(prefs.get("interests", []) or [])
+        reply = (
+            "Sure! Tell me what kind of trip you're imagining (beach, mountains, heritage…) "
+            "and I'll suggest options after checking the weather.\n\n"
+            + _format_suggestions(suggestions)
+            + "\n\nReply with a destination (e.g. *Goa*) and your source city + dates + budget."
+        )
+        state["conversation_stage"] = "collect"
+        state["messages"].append(AIMessage(content=reply))
+        sm.update_state(session_id, state)
+        sm.append_history(session_id, "assistant", reply)
+        return ChatResponse(reply=reply, state=state, stage="collect")
+
+    # ---------- Parse latest message into preferences ----------
+    update = user_input_agent(state) or {}
+    if update:
+        state.update(update)
+
+    missing = _has_basic_inputs(state)
+    if missing:
+        prefs = state.get("trip_preferences", {}) or {}
+        dest = prefs.get("destination") or "your destination"
+        reply = (
+            f"Got it. So far I have:\n"
+            f"  • destination: {prefs.get('destination') or '—'}\n"
+            f"  • source: {prefs.get('source') or '—'}\n"
+            f"  • duration: {prefs.get('duration_days') or '—'} days\n"
+            f"  • budget: {prefs.get('budget') or '—'} {prefs.get('currency','')}\n\n"
+            f"I still need: **{', '.join(missing)}**.\n"
+            f"You can give them all in one message — e.g. *from Delhi, 4 days, ₹20,000, family, train preferred*."
+        )
+        state["conversation_stage"] = "collect"
+        state["messages"].append(AIMessage(content=reply))
+        sm.update_state(session_id, state)
+        sm.append_history(session_id, "assistant", reply)
+        return ChatResponse(reply=reply, state=state, stage="collect")
+
+    # ---------- STEP 1: Check weather FIRST (per user's rule) ----------
+    if not state.get("weather_data"):
+        state.update(weather_agent(state) or {})
+        # Also fetch place suggestions/attractions so we can recommend
+        state.update(places_agent(state) or {})
+
+        weather_text = _format_weather(state.get("weather_data", {}))
+        # Suggest based on interests + destination
+        suggestions = (state.get("places_data", {}) or {}).get("alt_suggestions", [])
+        suggestions_text = _format_suggestions(suggestions)
+
+        prefs = state["trip_preferences"]
+        dest_info = (state.get("places_data", {}) or {}).get("destination_info", {})
+        attractions = dest_info.get("attractions", [])[:5]
+        attractions_text = ""
+        if attractions:
+            attractions_text = "\n\n🏛 *Top picks in " + prefs["destination"] + ":*\n" + "\n".join(
+                f"  • {a['name']} ({a['type']}) — ⭐ {a['rating']}" for a in attractions
+            )
+
+        verdict = (state["weather_data"].get("assessment") or {}).get("verdict", "good")
+        verdict_advice = ""
+        if verdict == "rainy":
+            verdict_advice = (
+                "\n\n💡 The forecast looks rainy. If you'd like, I can suggest a "
+                "**drier alternative destination** (just say 'suggest alternatives'), "
+                "or I'll plan **indoor-friendly activities** in " + prefs["destination"] + "."
+            )
+        elif verdict == "very_hot":
+            verdict_advice = "\n\n💡 It'll be quite hot — I'll plan early-morning and evening activities."
+
+        reply = (
+            f"Let me check the weather for **{prefs['destination']}** first…\n\n"
+            f"{weather_text}{attractions_text}\n\n"
+            f"{suggestions_text}\n\n"
+            f"{verdict_advice}\n\n"
+            "Reply **plan it** to generate your full itinerary + PDF, "
+            "or **suggest alternatives** if you'd like other ideas."
+        )
+        state["conversation_stage"] = "confirm"
+        state["messages"].append(AIMessage(content=reply))
+        sm.update_state(session_id, state)
+        sm.append_history(session_id, "assistant", reply)
+        return ChatResponse(reply=reply, state=state, stage="confirm")
+
+    # ---------- Confirmation / alternative branch ----------
+    text_lc = user_message.lower()
+    if "alternative" in text_lc or "alternatives" in text_lc or "another" in text_lc:
+        suggestions = (state.get("places_data", {}) or {}).get("alt_suggestions") or \
+                       suggest_places(state["trip_preferences"].get("interests", []) or [])
+        reply = (
+            "Here are other places that match your interests:\n\n"
+            + _format_suggestions(suggestions)
+            + "\n\nReply with a new destination, or say **plan it** to proceed with the current one."
+        )
+        state["messages"].append(AIMessage(content=reply))
+        sm.update_state(session_id, state)
+        sm.append_history(session_id, "assistant", reply)
+        return ChatResponse(reply=reply, state=state, stage="confirm")
+
+    if state.get("conversation_stage") == "confirm" and not any(
+        kw in text_lc for kw in ("plan", "yes", "go ahead", "proceed", "do it", "continue")
+    ):
+        # User likely gave a different destination — re-parse and re-check weather
+        if any(city in text_lc for city in DESTINATION_CATALOG.keys()):
+            state["weather_data"] = {}
+            state["places_data"] = {}
+            state["transport_data"] = {}
+            state["hotel_data"] = {}
+            state["budget_summary"] = {}
+            state["itinerary"] = {}
+            state["review_status"] = {}
+            return chat_turn(session_id, user_message)
+
+    # ---------- FULL PLAN: run the LangGraph workflow ----------
+    state["conversation_stage"] = "plan"
+    final_state: TripState = run_workflow(state)
+
+    pdf_path = final_state.get("pdf_path")
+    reply_lines = []
+    if pdf_path:
+        prefs = final_state["trip_preferences"]
+        budget = final_state.get

@@ -1,0 +1,16 @@
+case_id,category,quality,passed,final_stage,expected_status,latency_s,pdf_path,pii_detected,matched_keywords,expected_keywords,error,final_reply
+TC001,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"mysore,thank you,happy journey",,ok
+TC002,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"goa,thank you,happy journey",,ok
+TC003,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"jaipur,thank you,happy journey",,ok
+TC004,off_topic,medium,False,done,chat,0.0,/tmp/x.pdf,False,,travel,,ok
+TC005,off_topic,medium,False,done,chat,0.0,/tmp/x.pdf,False,,trip planner,,ok
+TC006,pii,good,False,done,done,0.0,/tmp/x.pdf,False,,"redacted,thank you",,ok
+TC007,pii,good,False,done,done,0.0,/tmp/x.pdf,False,,"redacted,thank you",,ok
+TC008,budget_fit,medium,False,done,done,0.0,/tmp/x.pdf,False,,within budget,,ok
+TC009,budget_fit,medium,False,done,done,0.0,/tmp/x.pdf,False,,adjusted,,ok
+TC010,weather_conflict,medium,False,done,done,0.0,/tmp/x.pdf,False,,indoor,,ok
+TC011,edge,bad,False,done,collect,0.0,/tmp/x.pdf,False,,still need,,ok
+TC012,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"kerala,thank you",,ok
+TC013,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"coorg,thank you",,ok
+TC014,edge,medium,False,done,done,0.0,/tmp/x.pdf,False,,"ooty,thank you",,ok
+TC015,edge,bad,False,done,chat,0.0,/tmp/x.pdf,False,,tell,,ok

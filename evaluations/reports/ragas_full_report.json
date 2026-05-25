@@ -1,0 +1,639 @@
+{
+  "summary": {
+    "skipped": false,
+    "metric_cols": [
+      "faithfulness",
+      "answer_relevancy",
+      "context_precision",
+      "context_recall",
+      "answer_correctness"
+    ],
+    "overall_means": {
+      "faithfulness": 0.44,
+      "answer_relevancy": 0.16,
+      "context_precision": 0.1333,
+      "context_recall": 0.08,
+      "answer_correctness": 0.5667
+    },
+    "tier_means": {
+      "good": {
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      "medium": {
+        "faithfulness": 0.4,
+        "answer_relevancy": 0.2667,
+        "context_precision": 0.1667,
+        "context_recall": 0.1,
+        "answer_correctness": 0.5333
+      },
+      "bad": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.4,
+        "context_precision": 0.5,
+        "context_recall": 0.3,
+        "answer_correctness": 0.2
+      }
+    },
+    "per_case": [
+      {
+        "case_id": "TC001",
+        "quality": "good",
+        "question_short": "plan a 4-day Mysore trip from Bangalore, budget Rs...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC002",
+        "quality": "good",
+        "question_short": "Plan a 5-day Goa trip from Bangalore for a couple,...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC003",
+        "quality": "good",
+        "question_short": "Plan a 3-day Jaipur trip from Delhi, budget rs 150...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC004",
+        "quality": "medium",
+        "question_short": "what is travel...",
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.8,
+        "context_precision": 0.5,
+        "context_recall": 0.3,
+        "answer_correctness": 0.2
+      },
+      {
+        "case_id": "TC005",
+        "quality": "medium",
+        "question_short": "who are you...",
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.8,
+        "context_precision": 0.5,
+        "context_recall": 0.3,
+        "answer_correctness": 0.2
+      },
+      {
+        "case_id": "TC006",
+        "quality": "good",
+        "question_short": "Plan a Goa trip from Mumbai for 3 days, Rs 20000, ...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC007",
+        "quality": "good",
+        "question_short": "Plan a 3-day Mysore trip from Bangalore, Rs 15000,...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC008",
+        "quality": "medium",
+        "question_short": "Plan a 4-day Goa trip from Bangalore for a couple,...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC009",
+        "quality": "medium",
+        "question_short": "Plan a 5-day Manali trip from Delhi, Rs 10000, lux...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC010",
+        "quality": "medium",
+        "question_short": "Plan a 3-day Mysore trip from Bangalore, Rs 15000,...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC011",
+        "quality": "bad",
+        "question_short": "plan a trip...",
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.5,
+        "context_recall": 0.3,
+        "answer_correctness": 0.2
+      },
+      {
+        "case_id": "TC012",
+        "quality": "good",
+        "question_short": "Plan a 4-day Kerala trip from Chennai for a family...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC013",
+        "quality": "good",
+        "question_short": "plan a trip to coorg for 3 days from bangalore, Rs...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC014",
+        "quality": "medium",
+        "question_short": "plan a trip to ooty for 4 days in next week from c...",
+        "faithfulness": 0.6,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "answer_correctness": 0.7
+      },
+      {
+        "case_id": "TC015",
+        "quality": "bad",
+        "question_short": "tell me about something random...",
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.8,
+        "context_precision": 0.5,
+        "context_recall": 0.3,
+        "answer_correctness": 0.2
+      }
+    ],
+    "total_cases": 15
+  },
+  "per_case": [
+    {
+      "case_id": "TC001",
+      "category": "happy_path",
+      "quality": "good",
+      "user_input": "plan a 4-day Mysore trip from Bangalore, budget Rs 15000, heritage and shopping, train || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "mysore",
+        "thank you",
+        "happy journey"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC002",
+      "category": "happy_path",
+      "quality": "good",
+      "user_input": "Plan a 5-day Goa trip from Bangalore for a couple, budget Rs 30000, beach, nightlife, seafood, flight preferred || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "goa",
+        "thank you",
+        "happy journey"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC003",
+      "category": "happy_path",
+      "quality": "good",
+      "user_input": "Plan a 3-day Jaipur trip from Delhi, budget rs 15000, heritage and shopping || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "jaipur",
+        "thank you",
+        "happy journey"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC004",
+      "category": "off_topic",
+      "quality": "medium",
+      "user_input": "what is travel",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "chat",
+      "expected_keywords": [
+        "travel"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.8,
+      "context_precision": 0.5,
+      "context_recall": 0.3,
+      "answer_correctness": 0.2
+    },
+    {
+      "case_id": "TC005",
+      "category": "off_topic",
+      "quality": "medium",
+      "user_input": "who are you",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "chat",
+      "expected_keywords": [
+        "trip planner"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.8,
+      "context_precision": 0.5,
+      "context_recall": 0.3,
+      "answer_correctness": 0.2
+    },
+    {
+      "case_id": "TC006",
+      "category": "pii",
+      "quality": "good",
+      "user_input": "Plan a Goa trip from Mumbai for 3 days, Rs 20000, beach, contact me at hari@example.com or +91-9876543210 || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "redacted",
+        "thank you"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC007",
+      "category": "pii",
+      "quality": "good",
+      "user_input": "Plan a 3-day Mysore trip from Bangalore, Rs 15000, train, heritage. PAN ABCDE1234F and Aadhaar 1234 5678 9012 || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "redacted",
+        "thank you"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC008",
+      "category": "budget_fit",
+      "quality": "medium",
+      "user_input": "Plan a 4-day Goa trip from Bangalore for a couple, budget Rs 15000, luxury beach resort, nightlife, flight preferred || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "within budget"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC009",
+      "category": "budget_fit",
+      "quality": "medium",
+      "user_input": "Plan a 5-day Manali trip from Delhi, Rs 10000, luxury hotel, adventure, flight || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "adjusted"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC010",
+      "category": "weather_conflict",
+      "quality": "medium",
+      "user_input": "Plan a 3-day Mysore trip from Bangalore, Rs 15000, heritage || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "indoor"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC011",
+      "category": "edge",
+      "quality": "bad",
+      "user_input": "plan a trip",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "collect",
+      "expected_keywords": [
+        "still need"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.5,
+      "context_recall": 0.3,
+      "answer_correctness": 0.2
+    },
+    {
+      "case_id": "TC012",
+      "category": "happy_path",
+      "quality": "good",
+      "user_input": "Plan a 4-day Kerala trip from Chennai for a family of 4, Rs 35000, backwaters and beaches, train preferred || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "kerala",
+        "thank you"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC013",
+      "category": "happy_path",
+      "quality": "good",
+      "user_input": "plan a trip to coorg for 3 days from bangalore, Rs 12000, nature, train || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "coorg",
+        "thank you"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC014",
+      "category": "edge",
+      "quality": "medium",
+      "user_input": "plan a trip to ooty for 4 days in next week from chennai, Rs 18000, family, mountains, train || plan it",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "done",
+      "expected_keywords": [
+        "ooty",
+        "thank you"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0,
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_correctness": 0.7
+    },
+    {
+      "case_id": "TC015",
+      "category": "edge",
+      "quality": "bad",
+      "user_input": "tell me about something random",
+      "final_reply": "ok",
+      "final_stage": "done",
+      "expected_status": "chat",
+      "expected_keywords": [
+        "tell"
+      ],
+      "matched_keywords": [],
+      "pdf_path": "/tmp/x.pdf",
+      "pii_detected": false,
+      "pii_warning": null,
+      "latency_s": 0.0,
+      "error": null,
+      "passed": false,
+      "turn_latencies": [
+        0.0
+      ],
+      "state_snapshot": {},
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.8,
+      "context_precision": 0.5,
+      "context_recall": 0.3,
+      "answer_correctness": 0.2
+    }
+  ]
+}

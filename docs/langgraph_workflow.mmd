@@ -1,0 +1,27 @@
+flowchart TD
+    START([START]) --> UI[User Input Agent]
+    UI --> MR[Memory Retrieval]
+    MR --> ORCH{Orchestrator}
+
+    ORCH -- next=weather --> W[Weather Agent]
+    ORCH -- next=places --> P[Places Agent]
+    ORCH -- next=transport --> T[Transport Agent]
+    ORCH -- next=hotel --> H[Hotel Agent]
+    ORCH -- next=budget --> B[Budget Agent]
+    ORCH -- next=itinerary --> It[Itinerary Agent]
+    ORCH -- next=review --> Rv[Final Review]
+
+    W --> ORCH
+    P --> ORCH
+    T --> ORCH
+    H --> ORCH
+    B --> ORCH
+    It --> ORCH
+
+    Rv --> V{Validate / Resolve}
+    V -- retry hotel --> H
+    V -- retry places --> P
+    V -- retry itinerary --> It
+    V -- approved --> MU[Memory Update]
+    MU --> PDF[PDF Generator]
+    PDF --> END([END])

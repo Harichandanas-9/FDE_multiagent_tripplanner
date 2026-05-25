@@ -1,0 +1,46 @@
+graph TB
+    User[User Web Chat<br/>Text + Voice via OpenAI Realtime]
+    Orch{Orchestrator Agent<br/>Supervisor}
+
+    User --> Orch
+
+    subgraph Specialized Agents
+      UI[User Input Agent]
+      MR[Memory Retrieval]
+      W[Weather Agent<br/>OpenWeatherMap]
+      P[Places Agent<br/>Google Places]
+      T[Transport Agent<br/>Flights / Trains]
+      H[Hotel Agent]
+      B[Budget Agent]
+      It[Itinerary Agent]
+      Rv[Final Review]
+      MU[Memory Update]
+      PDF[PDF Generator]
+    end
+
+    Orch --> UI --> MR --> Orch
+    Orch --> W --> Orch
+    Orch --> P --> Orch
+    Orch --> T --> Orch
+    Orch --> H --> Orch
+    Orch --> B --> Orch
+    Orch --> It --> Orch
+    Orch --> Rv --> Orch
+    Orch -- approved --> MU --> PDF --> User
+
+    subgraph Memory
+      FAISS[(FAISS Vector Store)]
+      Sess[(Session Memory)]
+    end
+    MR -.-> FAISS
+    MU -.-> FAISS
+    Orch -.-> Sess
+
+    subgraph External APIs
+      OWM[OpenWeatherMap]
+      GP[Google Places]
+      OAI[OpenAI Realtime API]
+    end
+    W --> OWM
+    P --> GP
+    User --> OAI
