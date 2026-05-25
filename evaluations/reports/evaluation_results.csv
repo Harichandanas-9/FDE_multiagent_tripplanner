@@ -1,16 +1,16 @@
 case_id,category,quality,passed,final_stage,expected_status,latency_s,pdf_path,pii_detected,matched_keywords,expected_keywords,error,final_reply
-TC001,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"mysore,thank you,happy journey",,ok
-TC002,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"goa,thank you,happy journey",,ok
-TC003,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"jaipur,thank you,happy journey",,ok
-TC004,off_topic,medium,False,done,chat,0.0,/tmp/x.pdf,False,,travel,,ok
-TC005,off_topic,medium,False,done,chat,0.0,/tmp/x.pdf,False,,trip planner,,ok
-TC006,pii,good,False,done,done,0.0,/tmp/x.pdf,False,,"redacted,thank you",,ok
-TC007,pii,good,False,done,done,0.0,/tmp/x.pdf,False,,"redacted,thank you",,ok
-TC008,budget_fit,medium,False,done,done,0.0,/tmp/x.pdf,False,,within budget,,ok
-TC009,budget_fit,medium,False,done,done,0.0,/tmp/x.pdf,False,,adjusted,,ok
-TC010,weather_conflict,medium,False,done,done,0.0,/tmp/x.pdf,False,,indoor,,ok
-TC011,edge,bad,False,done,collect,0.0,/tmp/x.pdf,False,,still need,,ok
-TC012,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"kerala,thank you",,ok
-TC013,happy_path,good,False,done,done,0.0,/tmp/x.pdf,False,,"coorg,thank you",,ok
-TC014,edge,medium,False,done,done,0.0,/tmp/x.pdf,False,,"ooty,thank you",,ok
-TC015,edge,bad,False,done,chat,0.0,/tmp/x.pdf,False,,tell,,ok
+TC001,happy_path,good,True,done,done,3.428,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Mysore_c76972.pdf,False,"mysore,thank you,happy journey","mysore,thank you,happy journey",,"Your **4-day Mysore** plan is ready!  Estimated: Rs 12833 of Rs 15000 - within budget  Adjusted: hotel tier, switched to train  PDF ready.   **Thank you, happy journey!**"
+TC002,happy_path,good,True,done,done,2.92,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Goa_b6f88f.pdf,False,"goa,thank you,happy journey","goa,thank you,happy journey",,"Your **5-day Goa** plan is ready!  Estimated: Rs 18130 of Rs 30000 - within budget  Adjusted: hotel tier  PDF ready.   **Thank you, happy journey!**"
+TC003,happy_path,good,True,done,done,2.955,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Jaipur_6eb919.pdf,False,"jaipur,thank you,happy journey","jaipur,thank you,happy journey",,"Your **3-day Jaipur** plan is ready!  Estimated: Rs 12906 of Rs 15000 - within budget  Adjusted: hotel tier  PDF ready.   **Thank you, happy journey!**"
+TC004,off_topic,medium,True,chat,chat,0.001,,False,travel,travel,,Travel is the act of going from one place to another. Tell me where you want to go!
+TC005,off_topic,medium,True,chat,chat,0.001,,False,trip planner,trip planner,,I'm your AI Trip Planner. Tell me where you'd like to go!
+TC006,pii,good,True,done,done,2.641,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Goa_bbbc47.pdf,True,thank you,"redacted,thank you",,"Your **3-day Goa** plan is ready!  Estimated: Rs 17948 of Rs 20000 - within budget  PDF ready.   **Thank you, happy journey!**"
+TC007,pii,good,True,done,done,2.581,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Mysore_8d02d6.pdf,True,thank you,"redacted,thank you",,"Your **3-day Mysore** plan is ready!  Estimated: Rs 12406 of Rs 15000 - within budget  Adjusted: hotel tier  PDF ready.   **Thank you, happy journey!**"
+TC008,budget_fit,medium,False,done,done,2.444,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Goa_3624fe.pdf,False,,within budget,,"Your **4-day Goa** plan is ready!  Estimated: Rs 15422 of Rs 15000 - over by Rs 422  Adjusted: hotel tier, switched to train  PDF ready.   **Thank you, happy journey!**"
+TC009,budget_fit,medium,False,done,done,1.895,,False,,adjusted,,Could not finalize the PDF this time.
+TC010,weather_conflict,medium,False,done,done,3.164,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Mysore_9c4242.pdf,False,,indoor,,"Your **3-day Mysore** plan is ready!  Estimated: Rs 13938 of Rs 15000 - within budget  Adjusted: hotel tier  PDF ready.   **Thank you, happy journey!**"
+TC011,edge,bad,True,collect,collect,0.267,,False,still need,still need,,"Got it. So far I have:   - destination: -   - source: -   - duration: - days   - budget: - INR  I still need: **destination, source city, duration or travel dates, budget (approx.)**."
+TC012,happy_path,good,True,done,done,2.866,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Kerala_c4f46a.pdf,False,"kerala,thank you","kerala,thank you",,"Your **4-day Kerala** plan is ready!  Estimated: Rs 27897 of Rs 35000 - within budget  PDF ready.   **Thank you, happy journey!**"
+TC013,happy_path,good,True,done,done,2.866,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Coorg_b5159c.pdf,False,"coorg,thank you","coorg,thank you",,"Your **3-day Coorg** plan is ready!  Estimated: Rs 10380 of Rs 12000 - within budget  Adjusted: hotel tier, switched to train  PDF ready.   **Thank you, happy journey!**"
+TC014,edge,medium,True,done,done,3.617,C:\Users\harichandana.p.PRODAPT\Documents\FDE_multiagenttripplanner-main\FDE_multiagent_tripplanner\outputs\TripPlan_Ooty_f1242f.pdf,False,"ooty,thank you","ooty,thank you",,"Your **4-day Ooty** plan is ready!  Estimated: Rs 15258 of Rs 18000 - within budget  Adjusted: hotel tier, switched to train  PDF ready.   **Thank you, happy journey!**"
+TC015,edge,bad,True,chat,chat,0.256,,False,tell,tell,,I'm best at planning trips. Tell me where you'd like to go!
