@@ -1,9 +1,5 @@
 """Entry point. Run with: python run.py"""
-import sys
-from pathlib import Path
-ROOT = Path(__file__).resolve().parent
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
-from server import main
+import server
+
 if __name__ == "__main__":
-    main()
+    server.main()
