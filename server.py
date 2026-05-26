@@ -262,13 +262,14 @@ except Exception as e:
 
 def main():
 
+    import os
     import uvicorn
 
     # Render provides PORT automatically
     port = int(os.environ.get("PORT", 10000))
 
     uvicorn.run(
-        "server:app",
+        app,
         host="0.0.0.0",
         port=port,
         reload=False
