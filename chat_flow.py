@@ -1,9 +1,11 @@
-"""Conversational flow controller (bulletproof, no LangGraph)."""
+"""Conversational flow controller — chat + guardrails + agents (bulletproof)."""
 from __future__ import annotations
 import logging, re, traceback
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
+
 from langchain_core.messages import AIMessage, HumanMessage
+
 from agents.user_input_agent import user_input_agent, _heuristic_parse, KNOWN_CITIES
 from agents.pii_agent import pii_guardrail_agent
 from agents.memory_agent import memory_retrieval_agent, memory_update_agent
@@ -90,7 +92,6 @@ TRIP_PHRASES = [r"\bplan(?:ning)?\s+(?:a\s+)?trip\b", r"\btrip\s+(?:to|from)\b",
                 r"\bbook\s+(?:a\s+)?(?:flight|train|hotel|trip)\b",
                 r"\bitinerary\b", r"\bplan\s+it\b",
                 r"\bsuggest\s+(?:a\s+)?(?:place|destination|alternative)"]
-
 DEFINITION_PREFIXES = [r"^what\s+is\b", r"^what\s+are\b", r"^what\'s\b",
                        r"^who\s+is\b", r"^who\s+are\b", r"^who\'s\b",
                        r"^why\s+", r"^how\s+do\s+", r"^how\s+does\s+",
@@ -140,7 +141,7 @@ def _looks_like_new_trip(t):
 @traceable(name="agent_pipeline")
 def _run_plan(state):
     s = dict(state)
-    s = _merge(s, _safe("pii", pii_guardrail_agent, s))
+    s = _merge(s, _safe("pii_guardrail", pii_guardrail_agent, s))
     s = _merge(s, _safe("user_input", user_input_agent, s))
     s = _merge(s, _safe("memory_retrieval", memory_retrieval_agent, s))
     for _ in range(6):
@@ -168,57 +169,85 @@ class ChatResponse:
     done: bool = False
     pii_warning: Optional[str] = None
     run_id: Optional[str] = None
+    guardrail_status: Optional[Dict[str, Any]] = None
+
+
+def _resp(reply, state, stage, pii_warning=None, guardrail_status=None,
+          pdf_path=None, done=False):
+    """Helper that always carries run_id + guardrail_status into ChatResponse."""
+    return ChatResponse(
+        reply=reply, state=state, stage=stage,
+        pdf_path=pdf_path, done=done,
+        pii_warning=pii_warning,
+        run_id=capture_run_id(),
+        guardrail_status=guardrail_status,
+    )
 
 
 @traceable(name="chat_turn")
 def chat_turn(session_id, user_message):
+    """ONE bulletproof entry point. Cannot raise an exception."""
     try:
         return _chat_turn_inner(session_id, user_message)
     except BaseException as e:
         logger.error("chat_turn fatal: %s\n%s", e, traceback.format_exc())
-        return ChatResponse(reply="Internal error. Try again.",
-                            state=new_state(user_id=session_id), stage="error")
+        return _resp("Internal error. Try again.",
+                     new_state(user_id=session_id), "error")
 
 
 def _chat_turn_inner(sid, user_message):
     sm = get_session_memory()
     sess = sm.get(sid)
     state = sess.get("state") or new_state(user_id=sid)
-    pii_warning = None
+    pii_warning: Optional[str] = None
+    guardrail_status: Dict[str, Any] = {
+        "checked": False, "pii_found": False, "pii_count": 0,
+        "kinds": [], "scrubbed": False,
+    }
 
+    # First-turn greeting on empty input
     if state.get("conversation_stage") == "greet" and not user_message.strip():
         sm.update_state(sid, state)
-        return ChatResponse(reply=GREETING, state=state, stage="greet",
-        run_id=capture_run_id(),
-    )
+        return _resp(GREETING, state, "greet", guardrail_status=guardrail_status)
 
+    # Reset state if previous trip already finished
     if state.get("conversation_stage") == "done" or (
         state.get("pdf_path") and _looks_like_new_trip(user_message)):
         uid = state.get("user_profile", {}).get("user_id", sid)
         state = new_state(user_id=uid)
         state["conversation_stage"] = "collect"
 
+    # ============ PII GUARDRAIL — always runs, status always reported ============
     if user_message:
         try:
             cleaned, hits = redact(user_message)
+            guardrail_status["checked"] = True
+            guardrail_status["pii_count"] = len(hits)
+            guardrail_status["kinds"] = sorted({h.kind for h in hits})
             if hits:
+                guardrail_status["pii_found"] = True
+                guardrail_status["scrubbed"] = True
                 pii_warning = ("I noticed " + summarise(hits) + " in your message; "
                                "redacted before processing.")
                 user_message = cleaned
-        except Exception: pass
+            logger.info("guardrail status: %s", guardrail_status)
+        except Exception as e:
+            logger.warning("guardrail check failed: %s", e)
+            guardrail_status["checked"] = False
+            guardrail_status["error"] = str(e)
 
     state["messages"] = list(state.get("messages", [])) + [HumanMessage(content=user_message)]
     sm.append_history(sid, "user", user_message)
 
+    # Bare "hi" echoes greeting
     if state.get("conversation_stage") == "greet":
         if re.fullmatch(r"\s*(hi|hello|hey|namaste|good (morning|evening|afternoon))[\.!]?\s*",
                          user_message, re.I):
             state["conversation_stage"] = "ask_help"
             state["messages"].append(AIMessage(content=GREETING))
             sm.update_state(sid, state)
-            return ChatResponse(reply=GREETING, state=state, stage="ask_help", pii_warning=pii_warning,
-        run_id=capture_run_id(),
-    )
+            return _resp(GREETING, state, "ask_help",
+                         pii_warning=pii_warning, guardrail_status=guardrail_status)
 
     if not _has_trip_signal(user_message, state):
         reply = _general_reply(user_message)
@@ -226,9 +255,8 @@ def _chat_turn_inner(sid, user_message):
         if state.get("conversation_stage") in ("greet", "ask_help"):
             state["conversation_stage"] = "ask_help"
         sm.update_state(sid, state)
-        return ChatResponse(reply=reply, state=state, stage="chat", pii_warning=pii_warning,
-        run_id=capture_run_id(),
-    )
+        return _resp(reply, state, "chat",
+                     pii_warning=pii_warning, guardrail_status=guardrail_status)
 
     if state.get("conversation_stage") in ("greet", "ask_help"):
         state["conversation_stage"] = "collect"
@@ -247,9 +275,8 @@ def _chat_turn_inner(sid, user_message):
         state["conversation_stage"] = "collect"
         state["messages"].append(AIMessage(content=reply))
         sm.update_state(sid, state)
-        return ChatResponse(reply=reply, state=state, stage="collect", pii_warning=pii_warning,
-        run_id=capture_run_id(),
-    )
+        return _resp(reply, state, "collect",
+                     pii_warning=pii_warning, guardrail_status=guardrail_status)
 
     if not state.get("weather_data"):
         state = _merge(state, _safe("weather", weather_agent, state))
@@ -269,9 +296,8 @@ def _chat_turn_inner(sid, user_message):
         state["conversation_stage"] = "confirm"
         state["messages"].append(AIMessage(content=reply))
         sm.update_state(sid, state)
-        return ChatResponse(reply=reply, state=state, stage="confirm", pii_warning=pii_warning,
-        run_id=capture_run_id(),
-    )
+        return _resp(reply, state, "confirm",
+                     pii_warning=pii_warning, guardrail_status=guardrail_status)
 
     state["conversation_stage"] = "plan"
     final_state = _run_plan(state)
@@ -296,7 +322,6 @@ def _chat_turn_inner(sid, user_message):
     final_state["messages"].append(AIMessage(content=reply))
     final_state["conversation_stage"] = "done"
     sm.update_state(sid, final_state)
-    return ChatResponse(reply=reply, state=final_state, stage="done",
-                        pdf_path=pdf_path, done=True, pii_warning=pii_warning,
-        run_id=capture_run_id(),
-    )
+    return _resp(reply, final_state, "done",
+                 pii_warning=pii_warning, guardrail_status=guardrail_status,
+                 pdf_path=pdf_path, done=True)

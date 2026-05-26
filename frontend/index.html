@@ -201,6 +201,14 @@ table.eval-table { width: 100%; border-collapse: collapse; font-size: 12.5px;
 .ls-badge.off { opacity:0.55; }
 .ls-badge a { color:white; text-decoration:none; }
 
+
+.guard-row { display:flex; gap:6px; align-items:center; padding:4px 4px 0; flex-wrap:wrap; }
+.guard-pill { font-size:10px; padding:3px 9px; border-radius:999px; font-weight:600;
+              display:inline-flex; gap:4px; align-items:center; }
+.guard-pill.pass { background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; }
+.guard-pill.warn { background:#fef3c7; color:#92400e; border:1px solid #fde68a; }
+.guard-pill.err  { background:#fee2e2; color:#991b1b; border:1px solid #fecaca; }
+
 </style>
 </head>
 <body>
@@ -324,6 +332,21 @@ async function sendMessage(text){
     typing.remove();
     if(!r.ok){ addMsg('⚠ Server error: '+(data?.detail||'HTTP '+r.status),'err'); return; }
     if(data.session_id){ sessionId=data.session_id; localStorage.setItem('trip_sid',sessionId); }
+    // Always show guardrail status pill so the user knows it ran
+    if (data.guardrail_status && data.guardrail_status.checked) {
+      const gs = data.guardrail_status;
+      const row = document.createElement('div'); row.className = 'guard-row';
+      const pill = document.createElement('span');
+      if (gs.pii_found) {
+        pill.className = 'guard-pill warn';
+        pill.textContent = '🔒 PII scrubbed: ' + (gs.kinds||[]).join(', ');
+      } else {
+        pill.className = 'guard-pill pass';
+        pill.textContent = '✓ Guardrails: no PII detected';
+      }
+      row.appendChild(pill);
+      log.appendChild(row);
+    }
     if(data.pii_warning) addMsg('🔒 '+data.pii_warning,'warn');
     addMsg(data.reply || '(no reply)','bot', {runId: data.run_id, runUrl: data.run_url});
     if(data.pdf_url) addPdfCard(data.pdf_url);

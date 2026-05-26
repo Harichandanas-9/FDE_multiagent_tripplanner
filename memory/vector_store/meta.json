@@ -42,5 +42,25 @@
       "end_date": "2026-06-10",
       "food_pref": []
     }
+  },
+  {
+    "text": "User eae12927cd2d planned a 3-day solo to Mysore from Bangalore Rs, budget 15000.0, interests: ",
+    "user_id": "eae12927cd2d",
+    "prefs": {
+      "source": "Bangalore Rs",
+      "destination": "Mysore",
+      "duration_days": 3,
+      "budget": 15000.0,
+      "currency": "INR",
+      "travelers": 1,
+      "travel_type": "solo",
+      "hotel_pref": "budget",
+      "transport_pref": "train",
+      "luxury_level": "standard",
+      "start_date": "2026-06-09",
+      "end_date": "2026-06-11",
+      "interests": [],
+      "food_pref": []
+    }
   }
 ]
